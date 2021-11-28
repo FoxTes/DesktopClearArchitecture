@@ -2,10 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-
         <IsPackable>false</IsPackable>
-
-        <RootNamespace>FamilyManager.Infrastructure.Identity.Test</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
