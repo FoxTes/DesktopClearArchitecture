@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        
+        <CodeAnalysisRuleSet>..\..\..\stylecop.ruleset</CodeAnalysisRuleSet>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <RootNamespace>FamilyManager.Domain</RootNamespace>
+    </PropertyGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="BimLab.FamilyManager.Client.SDK.V2" Version="2021.5.0" />
+      <PackageReference Include="CSharpFunctionalExtensions" Version="2.24.3" />
+      <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.354">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="System.Reactive" Version="5.0.0" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Folder Include="Common" />
+      <Folder Include="Entities" />
+      <Folder Include="Enums" />
+      <Folder Include="Events" />
+      <Folder Include="Exceptions" />
+    </ItemGroup>
+
+</Project>
