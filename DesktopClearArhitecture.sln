@@ -34,11 +34,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Infrasctucture.Identity", "src\Infrastructure\DesktopClearArchitecture.Infrasctucture.Identity\DesktopClearArchitecture.Infrasctucture.Identity.csproj", "{54D97E45-20DA-4581-BF86-19A52D11DFCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.UI", "src\UI\DesktopClearArchitecture.UI\DesktopClearArchitecture.UI.csproj", "{CCE55E0F-1DB5-4B71-AE9C-93E11B9F9579}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Client", "src\UI\DesktopClearArchitecture.Client\DesktopClearArchitecture.Client.csproj", "{CCE55E0F-1DB5-4B71-AE9C-93E11B9F9579}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{3F6E1163-17D1-45ED-91FA-6142F89A87BD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.UI.Modules.Test", "src\UI\Modules\DesktopClearArchitecture.UI.Modules.Test\DesktopClearArchitecture.UI.Modules.Test.csproj", "{2AFAC027-7347-41B3-A5F9-B519111D8C40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Shared", "src\UI\DesktopClearArchitecture.Shared\DesktopClearArchitecture.Shared.csproj", "{4EEFA1F0-0D10-4943-A281-9E80619BCB1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -149,6 +151,18 @@ Global
 		{2AFAC027-7347-41B3-A5F9-B519111D8C40}.Release|x64.Build.0 = Release|Any CPU
 		{2AFAC027-7347-41B3-A5F9-B519111D8C40}.Release|x86.ActiveCfg = Release|Any CPU
 		{2AFAC027-7347-41B3-A5F9-B519111D8C40}.Release|x86.Build.0 = Release|Any CPU
+		{4EEFA1F0-0D10-4943-A281-9E80619BCB1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EEFA1F0-0D10-4943-A281-9E80619BCB1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EEFA1F0-0D10-4943-A281-9E80619BCB1F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4EEFA1F0-0D10-4943-A281-9E80619BCB1F}.Debug|x64.Build.0 = Debug|Any CPU
+		{4EEFA1F0-0D10-4943-A281-9E80619BCB1F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4EEFA1F0-0D10-4943-A281-9E80619BCB1F}.Debug|x86.Build.0 = Debug|Any CPU
+		{4EEFA1F0-0D10-4943-A281-9E80619BCB1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EEFA1F0-0D10-4943-A281-9E80619BCB1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EEFA1F0-0D10-4943-A281-9E80619BCB1F}.Release|x64.ActiveCfg = Release|Any CPU
+		{4EEFA1F0-0D10-4943-A281-9E80619BCB1F}.Release|x64.Build.0 = Release|Any CPU
+		{4EEFA1F0-0D10-4943-A281-9E80619BCB1F}.Release|x86.ActiveCfg = Release|Any CPU
+		{4EEFA1F0-0D10-4943-A281-9E80619BCB1F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F19B327B-0830-46BF-B041-78ADA2077D64} = {2085163C-7BCB-4625-A63F-AD9EE86FD24F}
@@ -164,5 +178,6 @@ Global
 		{CCE55E0F-1DB5-4B71-AE9C-93E11B9F9579} = {02E9CD84-7D81-4943-828D-C7D6DF3C4863}
 		{3F6E1163-17D1-45ED-91FA-6142F89A87BD} = {02E9CD84-7D81-4943-828D-C7D6DF3C4863}
 		{2AFAC027-7347-41B3-A5F9-B519111D8C40} = {3F6E1163-17D1-45ED-91FA-6142F89A87BD}
+		{4EEFA1F0-0D10-4943-A281-9E80619BCB1F} = {02E9CD84-7D81-4943-828D-C7D6DF3C4863}
 	EndGlobalSection
 EndGlobal
