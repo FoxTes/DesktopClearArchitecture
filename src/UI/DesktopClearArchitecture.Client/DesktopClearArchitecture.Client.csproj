@@ -11,6 +11,8 @@
 
     <ItemGroup>
         <PackageReference Include="Prism.Unity" Version="8.1.97" />
+        <PackageReference Include="ReactiveUI" Version="17.1.4" />
+        <PackageReference Include="ReactiveUI.WPF" Version="17.1.4" />
         <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.354">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
