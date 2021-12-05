@@ -1,6 +1,6 @@
 # WPF Clear Architecture Template.
 
-Этот репозиторий представляет из себя шаблон для построения десктопных приложения на основе чистой архитектуры.
+This repository is a template for building desktop applications based on a clean architecture.
 
 ## Technologies
 
