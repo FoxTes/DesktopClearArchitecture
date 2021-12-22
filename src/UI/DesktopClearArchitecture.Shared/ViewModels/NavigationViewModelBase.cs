@@ -1,20 +1,28 @@
 ﻿namespace DesktopClearArchitecture.Shared.ViewModels
 {
+    using System;
     using Prism.Regions;
 
-    /// <inheritdoc cref="ViewModelBase" />
-    public abstract class NavigationViewModelBase : ViewModelBase, INavigationAware
+    /// <summary>
+    /// Basic view model for navigation.
+    /// </summary>
+    public class NavigationViewModelBase : ViewModelBase, IConfirmNavigationRequest
     {
-        /// <inheritdoc />
-        public virtual void OnNavigatedTo(NavigationContext navigationContext)
+        /// <inheritdoc/>
+        public virtual void ConfirmNavigationRequest(
+            NavigationContext navigationContext,
+            Action<bool> continuationCallback) => continuationCallback(true);
+
+        /// <inheritdoc/>
+        public virtual bool IsNavigationTarget(NavigationContext navigationContext) => true;
+
+        /// <inheritdoc/>
+        public virtual void OnNavigatedFrom(NavigationContext navigationContext)
         {
         }
 
-        /// <inheritdoc />
-        public virtual bool IsNavigationTarget(NavigationContext navigationContext) => true;
-
-        /// <inheritdoc />
-        public virtual void OnNavigatedFrom(NavigationContext navigationContext)
+        /// <inheritdoc/>
+        public virtual void OnNavigatedTo(NavigationContext navigationContext)
         {
         }
     }

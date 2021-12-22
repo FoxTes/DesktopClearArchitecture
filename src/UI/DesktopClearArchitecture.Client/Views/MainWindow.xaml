@@ -1,22 +1,10 @@
-﻿<reactiveUi:ReactiveWindow
-    Height="450"
-    Title="MainWindow"
-    Width="800"
-    mc:Ignorable="d"
+﻿<Window
+    MinHeight="720"
+    MinWidth="1280"
+    Title="DesktopClearArchitecture"
+    WindowStartupLocation="CenterScreen"
     x:Class="DesktopClearArchitecture.Client.Views.MainWindow"
-    x:TypeArguments="viewModels:MainWindowViewModel"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:reactiveUi="http://reactiveui.net"
-    xmlns:viewModels="clr-namespace:DesktopClearArchitecture.Client.ViewModels"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Grid>
-        <Button
-            Content="Show Authorization Dialog"
-            Height="64"
-            VerticalAlignment="Center"
-            Width="192"
-            x:Name="LoginBtn" />
-    </Grid>
-</reactiveUi:ReactiveWindow>
+    <Grid />
+</Window>

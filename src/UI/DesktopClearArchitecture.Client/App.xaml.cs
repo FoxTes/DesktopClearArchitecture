@@ -3,7 +3,7 @@
     using System.Windows;
     using Prism.Ioc;
     using Views;
-
+    
     /// <inheritdoc />
     public partial class App
     {

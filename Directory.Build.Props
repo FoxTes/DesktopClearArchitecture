@@ -1,0 +1,24 @@
+<Project>
+    <PropertyGroup>
+        <TargetFramework>net5.0-windows</TargetFramework>
+        <LangVersion>latestMajor</LangVersion>
+        <PlatformTarget>x64</PlatformTarget>
+        <IsPackable>false</IsPackable>
+        <CodeAnalysisRuleSet>..\..\..\stylecop.ruleset</CodeAnalysisRuleSet>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>NU1701</NoWarn>
+    </PropertyGroup>
+    
+    <ItemGroup Condition=" '$(ProjectName)' != '_build' And !'$(ProjectName.EndsWith(`Tests`))'">
+        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.354">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+    
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DebugType>none</DebugType>
+        <DocumentationFile />
+    </PropertyGroup>
+    
+</Project>

@@ -1,15 +1,14 @@
 ﻿namespace DesktopClearArchitecture.Shared.ViewModels
 {
-    using System.Reactive.Disposables;
+    using Prism.Mvvm;
     using Prism.Navigation;
-    using ReactiveUI;
 
-    /// <inheritdoc cref="ReactiveUI.ReactiveObject" />
-    public class ViewModelBase : ReactiveObject, IDestructible
+    /// <inheritdoc cref="Prism.Mvvm.BindableBase" />
+    public abstract class ViewModelBase : BindableBase, IDestructible
     {
-        private readonly CompositeDisposable _disposal = new();
-
         /// <inheritdoc />
-        public void Destroy() => _disposal.Dispose();
+        public virtual void Destroy()
+        {
+        }
     }
 }

@@ -1,21 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net5.0-windows</TargetFramework>
-        <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-        
-        <CodeAnalysisRuleSet>..\..\..\stylecop.ruleset</CodeAnalysisRuleSet>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Prism.Core" Version="8.1.97" />
-        <PackageReference Include="Prism.Wpf" Version="8.1.97" />
-        <PackageReference Include="ReactiveUI" Version="16.4.1" />
-        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.354">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-    </ItemGroup>
-
+  <ItemGroup>
+    <PackageReference Include="Prism.Core" Version="8.1.97" />
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+  </ItemGroup>
+  
 </Project>
