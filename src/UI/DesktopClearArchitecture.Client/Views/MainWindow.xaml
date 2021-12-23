@@ -3,8 +3,35 @@
     MinWidth="1280"
     Title="DesktopClearArchitecture"
     WindowStartupLocation="CenterScreen"
+    d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}"
+    mc:Ignorable="d"
     x:Class="DesktopClearArchitecture.Client.Views.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    xmlns:viewModels="clr-namespace:DesktopClearArchitecture.Client.ViewModels"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Grid />
+
+    <Grid>
+        <ui:NavigationView MenuItemsSource="{Binding NavigationMenuItems}" SelectedItem="{Binding NavigationSelectedItem}">
+            <ui:NavigationView.AutoSuggestBox>
+                <ui:AutoSuggestBox
+                    ItemsSource="{Binding NavigationSearchItems}"
+                    PlaceholderText="Search"
+                    Text="{Binding NavigationSearchText.Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            </ui:NavigationView.AutoSuggestBox>
+
+            <Grid Background="Gray">
+                <StackPanel>
+                    <Label Content="Input" />
+                    <TextBox Margin="5" Text="{Binding NavigationSearchText.Value, UpdateSourceTrigger=PropertyChanged}" />
+                    <Label Content="Output" />
+                    <TextBlock Text="{Binding Output.Value}" />
+                    <ListView ItemsSource="{Binding NavigationSearchItems}" />
+
+                </StackPanel>
+            </Grid>
+        </ui:NavigationView>
+    </Grid>
 </Window>
