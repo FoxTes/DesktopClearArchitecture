@@ -14,10 +14,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Grid>
-        <ui:NavigationView MenuItemsSource="{Binding NavigationMenuItems}" SelectedItem="{Binding NavigationSelectedItem}">
+        <ui:NavigationView
+            IsBackButtonVisible="Collapsed"
+            MenuItemsSource="{Binding NavigationMenuItems}"
+            SelectedItem="{Binding NavigationSelectedItem}">
             <ui:NavigationView.AutoSuggestBox>
                 <ui:AutoSuggestBox
-                    ItemsSource="{Binding NavigationSearchItems}"
+                    ItemsSource="{Binding NavigationSearchItems.Value}"
                     PlaceholderText="Search"
                     Text="{Binding NavigationSearchText.Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
             </ui:NavigationView.AutoSuggestBox>
@@ -27,9 +30,7 @@
                     <Label Content="Input" />
                     <TextBox Margin="5" Text="{Binding NavigationSearchText.Value, UpdateSourceTrigger=PropertyChanged}" />
                     <Label Content="Output" />
-                    <TextBlock Text="{Binding Output.Value}" />
-                    <ListView ItemsSource="{Binding NavigationSearchItems}" />
-
+                    <ListView ItemsSource="{Binding NavigationSearchItems.Value}" />
                 </StackPanel>
             </Grid>
         </ui:NavigationView>

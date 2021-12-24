@@ -4,15 +4,42 @@
         <UseWpf>true</UseWpf>
         <OutputType>WinExe</OutputType>
     </PropertyGroup>
-    
+
     <ItemGroup>
       <ProjectReference Include="..\DesktopClearArchitecture.Shared\DesktopClearArchitecture.Shared.csproj" />
     </ItemGroup>
     
     <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
       <PackageReference Include="ModernWpfUis" Version="1.3.0" />
       <PackageReference Include="Prism.Unity" Version="8.1.97" />
       <PackageReference Include="ReactiveProperty" Version="8.0.3" />
+      <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+      <PackageReference Include="Serilog.Settings.Configuration" Version="3.3.0" />
+      <PackageReference Include="Serilog.Sinks.Debug" Version="2.0.0" />
+      <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+      <PackageReference Include="Unity.Microsoft.DependencyInjection" Version="5.11.5" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <None Remove="appsettings.json" />
+      <Content Include="appsettings.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="appsettings.Development.json" />
+      <Content Include="appsettings.Development.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="appsettings.Production.json" />
+      <Content Include="appsettings.Production.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="appsettings.Stage.json" />
+      <Content Include="appsettings.Stage.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

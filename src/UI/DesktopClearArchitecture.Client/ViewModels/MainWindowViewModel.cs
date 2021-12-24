@@ -18,8 +18,7 @@
         public MainWindowViewModel()
         {
             var nameMenuItems = GetNavigationMenuItems(NavigationMenuItems)
-                .Select(x => x.Content)
-                .Cast<string>()
+                .Select(x => x.Content.ToString())
                 .ToList();
 
             NavigationSearchItems = NavigationSearchText
@@ -27,9 +26,10 @@
                 .Throttle(TimeSpan.FromMilliseconds(500))
                 .Select(term => term?.Trim())
                 .DistinctUntilChanged()
-                .Do(_ => NavigationSearchItems?.ClearOnScheduler())
-                .SelectMany(x => nameMenuItems.Where(y => y.Contains(x, StringComparison.OrdinalIgnoreCase)))
-                .ToReactiveCollection();
+                .Select(x => nameMenuItems
+                    .Where(y => y.Contains(x, StringComparison.OrdinalIgnoreCase))
+                    .ToArray())
+                .ToReadOnlyReactivePropertySlim();
 
             NavigationSelectedItem = NavigationMenuItems.FirstOrDefault();
         }
@@ -42,7 +42,7 @@
         /// <summary>
         /// Navigation search items.
         /// </summary>
-        public ReactiveCollection<string> NavigationSearchItems { get; }
+        public ReadOnlyReactivePropertySlim<string[]> NavigationSearchItems { get; }
 
         /// <summary>
         /// Navigation menu items.
