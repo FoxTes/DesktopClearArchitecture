@@ -1,6 +1,4 @@
 ﻿<Window
-    MinHeight="720"
-    MinWidth="1280"
     Title="DesktopClearArchitecture"
     WindowStartupLocation="CenterScreen"
     d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"

@@ -10,8 +10,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="ViewModels" />
-        <Folder Include="Views" />
+      <ProjectReference Include="..\..\DesktopClearArchitecture.Shared\DesktopClearArchitecture.Shared.csproj" />
     </ItemGroup>
 
 </Project>

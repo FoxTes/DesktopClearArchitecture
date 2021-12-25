@@ -7,8 +7,11 @@
 
     <ItemGroup>
       <ProjectReference Include="..\DesktopClearArchitecture.Shared\DesktopClearArchitecture.Shared.csproj" />
+      <ProjectReference Include="..\Modules\DesktopClearArchitecture.UI.Modules.Games\DesktopClearArchitecture.UI.Modules.Games.csproj" />
       <ProjectReference Include="..\Modules\DesktopClearArchitecture.UI.Modules.Home\DesktopClearArchitecture.UI.Modules.Home.csproj" />
+      <ProjectReference Include="..\Modules\DesktopClearArchitecture.UI.Modules.Music\DesktopClearArchitecture.UI.Modules.Music.csproj" />
       <ProjectReference Include="..\Modules\DesktopClearArchitecture.UI.Modules.Products\DesktopClearArchitecture.UI.Modules.Products.csproj" />
+      <ProjectReference Include="..\Modules\DesktopClearArchitecture.UI.Modules.Settings\DesktopClearArchitecture.UI.Modules.Settings.csproj" />
     </ItemGroup>
     
     <ItemGroup>

@@ -2,6 +2,8 @@
 {
     using Prism.Ioc;
     using Prism.Modularity;
+    using ViewModels;
+    using Views;
 
     /// <inheritdoc />
     public class GamesModule : IModule
@@ -9,13 +11,12 @@
         /// <inheritdoc />
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            throw new System.NotImplementedException();
+            containerRegistry.RegisterForNavigation<GamesControl, GamesControlViewModel>();
         }
 
         /// <inheritdoc />
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            throw new System.NotImplementedException();
         }
     }
 }

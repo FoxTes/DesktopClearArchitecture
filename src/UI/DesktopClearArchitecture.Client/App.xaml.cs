@@ -10,8 +10,11 @@
     using Prism.Modularity;
     using Prism.Unity;
     using Serilog;
+    using UI.Modules.Games;
     using UI.Modules.Home;
+    using UI.Modules.Music;
     using UI.Modules.Products;
+    using UI.Modules.Settings;
     using Unity;
     using Unity.Microsoft.DependencyInjection;
     using Views;
@@ -45,6 +48,9 @@
         {
             moduleCatalog.AddModule<HomeModule>();
             moduleCatalog.AddModule<ProductsModule>();
+            moduleCatalog.AddModule<MusicModule>();
+            moduleCatalog.AddModule<GamesModule>();
+            moduleCatalog.AddModule<SettingsModule>();
         }
 
         /// <inheritdoc />
