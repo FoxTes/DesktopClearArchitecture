@@ -5,8 +5,12 @@
     using System.Linq;
     using System.Reactive.Linq;
     using DesktopClearArchitecture.Shared.ViewModels;
+    using DesktopClearArchitecture.UI.Modules.Home.Views;
+    using DesktopClearArchitecture.UI.Modules.Products.Views;
     using ModernWpf.Controls;
+    using Prism.Regions;
     using Reactive.Bindings;
+    using Shared.Constants;
     using Views;
 
     /// <summary>
@@ -15,7 +19,7 @@
     public class MainWindowViewModel : NavigationViewModelBase
     {
         /// <inheritdoc />
-        public MainWindowViewModel()
+        public MainWindowViewModel(IRegionManager regionManager)
         {
             var nameMenuItems = GetNavigationMenuItems(NavigationMenuItems)
                 .Select(x => x.Content.ToString())
@@ -31,39 +35,32 @@
                     .ToArray())
                 .ToReadOnlyReactivePropertySlim();
 
-            NavigationSelectedItem = NavigationMenuItems.FirstOrDefault();
+            NavigationMenuItemInvoked.Subscribe(args =>
+                regionManager.RequestNavigate(RegionNames.MainContent, args.InvokedItemContainer.Tag.ToString()));
         }
-
-        /// <summary>
-        /// Navigation search text.
-        /// </summary>
-        public ReactivePropertySlim<string> NavigationSearchText { get; } = new(string.Empty);
-
-        /// <summary>
-        /// Navigation search items.
-        /// </summary>
-        public ReadOnlyReactivePropertySlim<string[]> NavigationSearchItems { get; }
 
         /// <summary>
         /// Navigation menu items.
         /// </summary>
-        public List<NavigationViewItemBase> NavigationMenuItems { get; set; } = new()
+        public static List<NavigationViewItemBase> NavigationMenuItems { get; set; } = new()
         {
             new NavigationViewItem
             {
                 Content = "Home",
-                Icon = new SymbolIcon(Symbol.Home)
+                Icon = new SymbolIcon(Symbol.Home),
+                Tag = nameof(HomeControl)
             },
             new NavigationViewItemSeparator(),
             new NavigationViewItem
             {
                 Content = "Products",
-                Icon = new SymbolIcon(Symbol.AllApps)
+                Icon = new SymbolIcon(Symbol.AllApps),
+                Tag = nameof(ProductsControl)
             },
             new NavigationViewItem
             {
                 Content = "Music",
-                Icon = new SymbolIcon(Symbol.MusicInfo),
+                Icon = new SymbolIcon(Symbol.MusicInfo)
             },
             new NavigationViewItem
             {
@@ -88,7 +85,22 @@
         /// <summary>
         /// Navigation search text.
         /// </summary>
-        public NavigationViewItemBase NavigationSelectedItem { get; }
+        public ReactivePropertySlim<string> NavigationSearchText { get; } = new(string.Empty);
+
+        /// <summary>
+        /// Navigation search items.
+        /// </summary>
+        public ReadOnlyReactivePropertySlim<string[]> NavigationSearchItems { get; }
+
+        /// <summary>
+        /// Navigation search text.
+        /// </summary>
+        public NavigationViewItemBase NavigationSelectedItem { get; } = NavigationMenuItems.FirstOrDefault();
+
+        /// <summary>
+        /// Navigation menu item invoked.
+        /// </summary>
+        public ReactiveCommand<NavigationViewItemInvokedEventArgs> NavigationMenuItemInvoked { get; } = new();
 
         private static IEnumerable<NavigationViewItemBase> GetNavigationMenuItems(
             IEnumerable<NavigationViewItemBase> items)
