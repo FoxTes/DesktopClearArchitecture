@@ -6,7 +6,7 @@ This repository is a template for building desktop applications based on a clean
 
 * [WPF .NET5](https://docs.microsoft.com/ru-ru/dotnet/desktop/wpf/?view=netdesktop-5.0)
 * [Prism](https://prismlibrary.com/)
-* [ReactiveUI](https://www.reactiveui.net/)
+* [ReactiveProperty](https://github.com/runceel/ReactiveProperty)
 * [Entity Framework Core 6](https://docs.microsoft.com/en-us/ef/core/)
 * [AutoMapper](https://automapper.org/)
 * [FluentValidation](https://fluentvalidation.net/)
