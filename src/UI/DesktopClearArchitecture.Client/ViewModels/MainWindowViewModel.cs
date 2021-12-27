@@ -10,6 +10,7 @@
     using DesktopClearArchitecture.UI.Modules.Music.Views;
     using DesktopClearArchitecture.UI.Modules.Products.Views;
     using DesktopClearArchitecture.UI.Modules.Settings.Views;
+    using Models;
     using ModernWpf.Controls;
     using Prism.Regions;
     using Reactive.Bindings;
@@ -21,11 +22,21 @@
     /// </summary>
     public class MainWindowViewModel : NavigationViewModelBase
     {
+        private readonly IRegionManager _regionManager;
+
         /// <inheritdoc />
         public MainWindowViewModel(IRegionManager regionManager)
         {
-            var nameMenuItems = GetNavigationMenuItems(NavigationMenuItems)
-                .Select(x => x.Content.ToString())
+            _regionManager = regionManager;
+
+            var navigationViewItems = GetNavigationViewItems(NavigationMenuItems)
+                .ToList();
+            var dataNavigationViewItems = navigationViewItems
+                .Select(z => new DataNavigationView
+                {
+                    NameContentElement = z.Content.ToString(),
+                    NameControl = z.Tag.ToString()
+                })
                 .ToList();
 
             NavigationSearchItems = NavigationSearchText
@@ -33,15 +44,20 @@
                 .Throttle(TimeSpan.FromMilliseconds(500))
                 .Select(term => term?.Trim())
                 .DistinctUntilChanged()
-                .Select(x => nameMenuItems
-                    .Where(y => y.Contains(x, StringComparison.OrdinalIgnoreCase))
+                .Select(x => dataNavigationViewItems
+                    .Where(y => y.NameContentElement.Contains(x, StringComparison.OrdinalIgnoreCase))
                     .ToArray())
                 .ToReadOnlyReactivePropertySlim();
 
+            NavigationSelectedItem = NavigationMenuQuerySubmitted
+                .Select(args => navigationViewItems.FirstOrDefault(x => (string)x.Content == args.QueryText))
+                .ToReactiveProperty(NavigationMenuItems.FirstOrDefault());
+
             NavigationMenuItemInvoked.Subscribe(args =>
-                regionManager.RequestNavigate(
-                    RegionNames.MainContent,
-                    args.IsSettingsInvoked ? nameof(SettingsControl) : args.InvokedItemContainer.Tag.ToString()));
+                MenuRequestNavigate(args.InvokedItemContainer.Tag.ToString()));
+
+            NavigationMenuQuerySubmitted.Subscribe(args =>
+                MenuRequestNavigate(((DataNavigationView)args.ChosenSuggestion).NameControl));
         }
 
         /// <summary>
@@ -99,19 +115,24 @@
         /// <summary>
         /// Navigation search items.
         /// </summary>
-        public ReadOnlyReactivePropertySlim<string[]> NavigationSearchItems { get; }
+        public ReadOnlyReactivePropertySlim<DataNavigationView[]> NavigationSearchItems { get; }
 
         /// <summary>
         /// Navigation search text.
         /// </summary>
-        public NavigationViewItemBase NavigationSelectedItem { get; } = NavigationMenuItems.FirstOrDefault();
+        public ReactiveProperty<NavigationViewItemBase> NavigationSelectedItem { get; }
 
         /// <summary>
         /// Navigation menu item invoked.
         /// </summary>
         public ReactiveCommand<NavigationViewItemInvokedEventArgs> NavigationMenuItemInvoked { get; } = new();
 
-        private static IEnumerable<NavigationViewItemBase> GetNavigationMenuItems(
+        /// <summary>
+        /// Navigation menu query submitted.
+        /// </summary>
+        public ReactiveCommand<AutoSuggestBoxQuerySubmittedEventArgs> NavigationMenuQuerySubmitted { get; } = new();
+
+        private static IEnumerable<NavigationViewItemBase> GetNavigationViewItems(
             IEnumerable<NavigationViewItemBase> items)
         {
             if (items == null)
@@ -121,10 +142,13 @@
             {
                 yield return item;
 
-                foreach (var subItem in GetNavigationMenuItems(
+                foreach (var subItem in GetNavigationViewItems(
                     (IEnumerable<NavigationViewItemBase>)item.MenuItemsSource))
                     yield return subItem;
             }
         }
+
+        private void MenuRequestNavigate(string nameControl, bool isSettings = false) =>
+            _regionManager.RequestNavigate(RegionNames.MainContent, isSettings ? nameof(SettingsControl) : nameControl);
     }
 }

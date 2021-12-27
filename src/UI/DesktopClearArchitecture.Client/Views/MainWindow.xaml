@@ -20,12 +20,20 @@
         <ui:NavigationView
             IsBackButtonVisible="Collapsed"
             MenuItemsSource="{Binding NavigationMenuItems}"
-            SelectedItem="{Binding NavigationSelectedItem}">
+            SelectedItem="{Binding NavigationSelectedItem.Value, Mode=TwoWay}">
             <ui:NavigationView.AutoSuggestBox>
                 <ui:AutoSuggestBox
+                    DisplayMemberPath="NameContentElement"
                     ItemsSource="{Binding NavigationSearchItems.Value}"
                     PlaceholderText="Search"
-                    Text="{Binding NavigationSearchText.Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                    Text="{Binding NavigationSearchText.Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="QuerySubmitted">
+                            <r:EventToReactiveCommand Command="{Binding NavigationMenuQuerySubmitted}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ui:AutoSuggestBox>
             </ui:NavigationView.AutoSuggestBox>
 
             <i:Interaction.Triggers>

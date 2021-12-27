@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <TargetFramework>net5.0-windows</TargetFramework>
-        <LangVersion>latestMajor</LangVersion>
+        <LangVersion>preview</LangVersion>
         <PlatformTarget>x64</PlatformTarget>
         <IsPackable>false</IsPackable>
         <CodeAnalysisRuleSet>..\..\..\stylecop.ruleset</CodeAnalysisRuleSet>
