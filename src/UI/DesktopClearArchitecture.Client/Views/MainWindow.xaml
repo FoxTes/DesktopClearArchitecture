@@ -17,16 +17,22 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button Command="{Binding CreateNavigationMenu}" Content="Create menu" />
         <ui:NavigationView
+            Grid.Row="1"
             IsBackButtonVisible="Collapsed"
-            MenuItemsSource="{Binding NavigationMenuItems}"
+            MenuItemsSource="{Binding NavigationMenuItems.Value, Mode=TwoWay}"
             SelectedItem="{Binding NavigationSelectedItem.Value, Mode=TwoWay}">
             <ui:NavigationView.AutoSuggestBox>
                 <ui:AutoSuggestBox
                     DisplayMemberPath="NameContentElement"
-                    ItemsSource="{Binding NavigationSearchItems.Value}"
+                    ItemsSource="{Binding AutoSuggestBoxItems.Value}"
                     PlaceholderText="Search"
-                    Text="{Binding NavigationSearchText.Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    Text="{Binding AutoSuggestBoxSearchText.Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="QuerySubmitted">

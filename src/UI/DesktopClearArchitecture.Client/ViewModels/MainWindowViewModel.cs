@@ -22,48 +22,7 @@
     /// </summary>
     public class MainWindowViewModel : NavigationViewModelBase
     {
-        private readonly IRegionManager _regionManager;
-
-        /// <inheritdoc />
-        public MainWindowViewModel(IRegionManager regionManager)
-        {
-            _regionManager = regionManager;
-
-            var navigationViewItems = GetNavigationViewItems(NavigationMenuItems)
-                .ToList();
-            var dataNavigationViewItems = navigationViewItems
-                .Select(z => new DataNavigationView
-                {
-                    NameContentElement = z.Content.ToString(),
-                    NameControl = z.Tag.ToString()
-                })
-                .ToList();
-
-            NavigationSearchItems = NavigationSearchText
-                .Skip(1)
-                .Throttle(TimeSpan.FromMilliseconds(500))
-                .Select(term => term?.Trim())
-                .DistinctUntilChanged()
-                .Select(x => dataNavigationViewItems
-                    .Where(y => y.NameContentElement.Contains(x, StringComparison.OrdinalIgnoreCase))
-                    .ToArray())
-                .ToReadOnlyReactivePropertySlim();
-
-            NavigationSelectedItem = NavigationMenuQuerySubmitted
-                .Select(args => navigationViewItems.FirstOrDefault(x => (string)x.Content == args.QueryText))
-                .ToReactiveProperty(NavigationMenuItems.FirstOrDefault());
-
-            NavigationMenuItemInvoked.Subscribe(args =>
-                MenuRequestNavigate(args.InvokedItemContainer.Tag.ToString()));
-
-            NavigationMenuQuerySubmitted.Subscribe(args =>
-                MenuRequestNavigate(((DataNavigationView)args.ChosenSuggestion).NameControl));
-        }
-
-        /// <summary>
-        /// Navigation menu items.
-        /// </summary>
-        public static List<NavigationViewItemBase> NavigationMenuItems { get; set; } = new()
+        private static readonly NavigationViewItemBase[] NavigationViewItems =
         {
             new NavigationViewItem
             {
@@ -107,15 +66,69 @@
             }
         };
 
+        private readonly IRegionManager _regionManager;
+
+        /// <inheritdoc />
+        public MainWindowViewModel(IRegionManager regionManager)
+        {
+            _regionManager = regionManager;
+
+            var navigationViewItems = GetNavigationViewItems(NavigationViewItems)
+                .ToList();
+            var dataNavigationViewItems = navigationViewItems
+                .Select(z => new DataNavigationView
+                {
+                    NameContentElement = z.Content.ToString(),
+                    NameControl = z.Tag.ToString()
+                })
+                .ToList();
+
+            AutoSuggestBoxItems = AutoSuggestBoxSearchText
+                .Skip(1)
+                .Throttle(TimeSpan.FromMilliseconds(500))
+                .Select(term => term?.Trim())
+                .DistinctUntilChanged()
+                .Select(x => dataNavigationViewItems
+                    .Where(y => y.NameContentElement.Contains(x, StringComparison.OrdinalIgnoreCase))
+                    .ToArray())
+                .ToReadOnlyReactivePropertySlim();
+
+            NavigationSelectedItem = NavigationMenuQuerySubmitted
+                .DistinctUntilChanged()
+                .Select(args => navigationViewItems.FirstOrDefault(x => (string)x.Content == args.QueryText))
+                .ToReactiveProperty(NavigationViewItems.FirstOrDefault());
+
+            NavigationMenuItemInvoked
+                .DistinctUntilChanged()
+                .Subscribe(args => MenuRequestNavigate(args.InvokedItemContainer.Tag.ToString()));
+
+            NavigationMenuQuerySubmitted
+                .DistinctUntilChanged()
+                .Subscribe(args => MenuRequestNavigate(((DataNavigationView)args.ChosenSuggestion).NameControl));
+
+            CreateNavigationMenu
+                .Subscribe(_ =>
+                {
+                    NavigationMenuItems.Value = NavigationViewItems
+                        .OrderBy(_ => Guid.NewGuid())
+                        .ToArray();
+                });
+        }
+
         /// <summary>
         /// Navigation search text.
         /// </summary>
-        public ReactivePropertySlim<string> NavigationSearchText { get; } = new(string.Empty);
+        public ReactivePropertySlim<string> AutoSuggestBoxSearchText { get; } = new(string.Empty);
 
         /// <summary>
         /// Navigation search items.
         /// </summary>
-        public ReadOnlyReactivePropertySlim<DataNavigationView[]> NavigationSearchItems { get; }
+        public ReadOnlyReactivePropertySlim<DataNavigationView[]> AutoSuggestBoxItems { get; }
+
+        /// <summary>
+        /// Navigation menu items.
+        /// </summary>
+        public ReactivePropertySlim<NavigationViewItemBase[]> NavigationMenuItems { get; } = new(NavigationViewItems);
 
         /// <summary>
         /// Navigation search text.
@@ -131,6 +144,11 @@
         /// Navigation menu query submitted.
         /// </summary>
         public ReactiveCommand<AutoSuggestBoxQuerySubmittedEventArgs> NavigationMenuQuerySubmitted { get; } = new();
+
+        /// <summary>
+        /// Create navigation menu.
+        /// </summary>
+        public ReactiveCommand CreateNavigationMenu { get; } = new();
 
         private static IEnumerable<NavigationViewItemBase> GetNavigationViewItems(
             IEnumerable<NavigationViewItemBase> items)
