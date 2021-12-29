@@ -11,9 +11,6 @@
         public string FullName { get; set; }
 
         /// <inheritdoc />
-        public override string ToString()
-        {
-            return FullName;
-        }
+        public override string ToString() => FullName;
     }
 }

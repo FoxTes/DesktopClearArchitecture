@@ -3,16 +3,16 @@
     /// <summary>
     /// Song.
     /// </summary>
-    public class Song
+    public readonly struct Song
     {
         /// <summary>
         /// Name.
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; init; }
 
         /// <summary>
         /// Duration.
         /// </summary>
-        public int Duration { get; set; }
+        public int Duration { get; init; }
     }
 }

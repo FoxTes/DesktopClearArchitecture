@@ -3,7 +3,7 @@
     using System;
     using System.IO;
     using System.Windows;
-    using DesktopClearArchitecture.Application.Extensions;
+    using Application.Extensions;
     using Domain.Abstractions;
     using Infrastructure.Services;
     using Microsoft.Extensions.Configuration;
