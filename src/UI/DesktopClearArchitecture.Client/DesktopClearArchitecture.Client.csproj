@@ -6,6 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\Domain\DesktopClearArchitecture.Domain\DesktopClearArchitecture.Domain.csproj" />
+      <ProjectReference Include="..\..\Infrastructure\DesktopClearArchitecture.Infrastructure\DesktopClearArchitecture.Infrastructure.csproj" />
       <ProjectReference Include="..\DesktopClearArchitecture.Shared\DesktopClearArchitecture.Shared.csproj" />
       <ProjectReference Include="..\Modules\DesktopClearArchitecture.UI.Modules.Games\DesktopClearArchitecture.UI.Modules.Games.csproj" />
       <ProjectReference Include="..\Modules\DesktopClearArchitecture.UI.Modules.Home\DesktopClearArchitecture.UI.Modules.Home.csproj" />

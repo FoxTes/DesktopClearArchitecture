@@ -24,17 +24,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solutionFolder", "solutionF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Domain", "src\Domain\DesktopClearArchitecture.Domain\DesktopClearArchitecture.Domain.csproj", "{37B48BD7-CB1F-47F0-99C0-0FA7486D8D30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArhitecture.Application", "src\Application\DesktopClearArhitecture.Application\DesktopClearArhitecture.Application.csproj", "{CA84664A-5386-4070-9A72-AC77DB5280AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Application", "src\Application\DesktopClearArchitecture.Application\DesktopClearArchitecture.Application.csproj", "{CA84664A-5386-4070-9A72-AC77DB5280AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Infrasctucture", "src\Infrastructure\DesktopClearArchitecture.Infrasctucture\DesktopClearArchitecture.Infrasctucture.csproj", "{3A2605DB-CCF0-4982-9092-117D6E264E3A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Infrastructure", "src\Infrastructure\DesktopClearArchitecture.Infrastructure\DesktopClearArchitecture.Infrastructure.csproj", "{3A2605DB-CCF0-4982-9092-117D6E264E3A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Infrasctucture.Identity.Test", "tests\DesktopClearArchitecture.Infrasctucture.Identity.Test\DesktopClearArchitecture.Infrasctucture.Identity.Test.csproj", "{03656BAD-7F6A-47D6-BD64-8B788E60EB69}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{02E9CD84-7D81-4943-828D-C7D6DF3C4863}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Infrasctucture.Persistence", "src\Infrastructure\DesktopClearArchitecture.Infrasctucture.Persistence\DesktopClearArchitecture.Infrasctucture.Persistence.csproj", "{6E2F3FF3-2DB3-4914-930E-59987E184A58}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Infrastructure.Persistence", "src\Infrastructure\DesktopClearArchitecture.Infrastructure.Persistence\DesktopClearArchitecture.Infrastructure.Persistence.csproj", "{6E2F3FF3-2DB3-4914-930E-59987E184A58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Infrasctucture.Identity", "src\Infrastructure\DesktopClearArchitecture.Infrasctucture.Identity\DesktopClearArchitecture.Infrasctucture.Identity.csproj", "{54D97E45-20DA-4581-BF86-19A52D11DFCC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Infrastructure.Identity", "src\Infrastructure\DesktopClearArchitecture.Infrastructure.Identity\DesktopClearArchitecture.Infrastructure.Identity.csproj", "{54D97E45-20DA-4581-BF86-19A52D11DFCC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Client", "src\UI\DesktopClearArchitecture.Client\DesktopClearArchitecture.Client.csproj", "{CCE55E0F-1DB5-4B71-AE9C-93E11B9F9579}"
 EndProject

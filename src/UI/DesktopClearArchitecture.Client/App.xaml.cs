@@ -3,6 +3,9 @@
     using System;
     using System.IO;
     using System.Windows;
+    using DesktopClearArchitecture.Application.Extensions;
+    using Domain.Abstractions;
+    using Infrastructure.Services;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
@@ -56,6 +59,7 @@
         /// <inheritdoc />
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterSingleton<IMusicPlayer, MusicPlayer>();
         }
 
         /// <inheritdoc />
@@ -64,6 +68,7 @@
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddLogging(loggingBuilder =>
                 loggingBuilder.AddSerilog(dispose: true));
+            serviceCollection.AddMapper();
 
             var container = new UnityContainer();
             container.BuildServiceProvider(serviceCollection);
