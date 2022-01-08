@@ -14,16 +14,17 @@
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
+        private readonly Random _random = new();
+
         /// <inheritdoc />
         public IEnumerable<Song> GetSongs()
         {
-            var random = new Random();
             return Enumerable
-                .Range(0, 5)
+                .Range(0, 10)
                 .Select(_ => new Song
                 {
-                    Name = NameSongs[random.Next(NameSongs.Length)],
-                    Duration = random.Next(0, 360)
+                    Name = NameSongs[_random.Next(NameSongs.Length)],
+                    Duration = _random.Next(0, 360)
                 });
         }
     }

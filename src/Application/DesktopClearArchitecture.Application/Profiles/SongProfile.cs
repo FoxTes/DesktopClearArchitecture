@@ -13,7 +13,7 @@
         public SongProfile()
         {
             CreateMap<Song, SongDto>()
-                .ForMember(dest => dest.FullName, opt => opt.MapFrom(scr => scr.Name + " - " + scr.Duration));
+                .ForMember(dest => dest.FullName, opt => opt.MapFrom(scr => $"{scr.Name} - {scr.Duration.ToString()}"));
         }
     }
 }

@@ -3,12 +3,12 @@
     /// <summary>
     /// Song dto.
     /// </summary>
-    public class SongDto
+    public readonly struct SongDto
     {
         /// <summary>
         /// Full name song.
         /// </summary>
-        public string FullName { get; set; }
+        public string FullName { get; init; }
 
         /// <inheritdoc />
         public override string ToString() => FullName;

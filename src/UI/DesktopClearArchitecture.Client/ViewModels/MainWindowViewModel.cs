@@ -100,11 +100,13 @@
 
             NavigationMenuItemInvoked
                 .DistinctUntilChanged()
-                .Subscribe(args => MenuRequestNavigate(args.InvokedItemContainer.Tag.ToString()));
+                .Subscribe(args =>
+                    MenuRequestNavigate(args.InvokedItemContainer.Tag.ToString(), args.IsSettingsInvoked));
 
             NavigationMenuQuerySubmitted
                 .DistinctUntilChanged()
-                .Subscribe(args => MenuRequestNavigate(((DataNavigationView)args.ChosenSuggestion).NameControl));
+                .Subscribe(args =>
+                    MenuRequestNavigate(((DataNavigationView)args.ChosenSuggestion).NameControl));
 
             CreateNavigationMenu
                 .Subscribe(_ =>

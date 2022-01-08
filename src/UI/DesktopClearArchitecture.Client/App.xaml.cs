@@ -68,7 +68,7 @@
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddLogging(loggingBuilder =>
                 loggingBuilder.AddSerilog(dispose: true));
-            serviceCollection.AddMapper();
+            serviceCollection.AddMapster();
 
             var container = new UnityContainer();
             container.BuildServiceProvider(serviceCollection);

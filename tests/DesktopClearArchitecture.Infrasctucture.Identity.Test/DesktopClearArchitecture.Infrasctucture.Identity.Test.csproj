@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
     
     <ItemGroup>
-        <PackageReference Include="FluentAssertions" Version="6.2.0" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+        <PackageReference Include="FluentAssertions" Version="6.3.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
         <PackageReference Include="xunit" Version="2.4.1" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -12,8 +12,11 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <CodeAnalysisRuleSet>..\..\..\..\stylecopTests.ruleset</CodeAnalysisRuleSet>
     </ItemGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>..\..\..\..\stylecop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\..\src\Infrastructure\DesktopClearArchitecture.Infrasctucture\DesktopClearArchitecture.Infrasctucture.csproj" />

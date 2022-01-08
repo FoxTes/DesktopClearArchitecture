@@ -3,11 +3,10 @@
     using System.Linq;
     using System.Reactive.Linq;
     using Application.Dtos;
-    using AutoMapper;
     using DesktopClearArchitecture.Shared.ViewModels;
     using Domain.Abstractions;
+    using Mapster;
     using Reactive.Bindings;
-    using Reactive.Bindings.Extensions;
     using Views;
 
     /// <summary>
@@ -16,11 +15,13 @@
     public class MusicControlViewModel : NavigationViewModelBase
     {
         /// <inheritdoc />
-        public MusicControlViewModel(IMapper mapper, IMusicPlayer musicPlayer)
+        public MusicControlViewModel(IMusicPlayer musicPlayer)
         {
             SongDtos = GetAllSongs
-                .Select(_ => mapper.Map<SongDto[]>(musicPlayer.GetSongs().ToArray()))
-                .ObserveOnUIDispatcher()
+                .Select(_ => musicPlayer
+                    .GetSongs()
+                    .ToArray()
+                    .Adapt<SongDto[]>())
                 .ToReadOnlyReactivePropertySlim();
         }
 
