@@ -3,8 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using DesktopClearArchitecture.Domain.Models;
     using Domain.Abstractions;
-    using Domain.Entities;
 
     /// <inheritdoc />
     public class MusicPlayer : IMusicPlayer

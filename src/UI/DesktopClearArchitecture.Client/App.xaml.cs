@@ -60,6 +60,7 @@
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IMusicPlayer, MusicPlayer>();
+            containerRegistry.RegisterSingleton<IGameSearcher, GameSearcher>();
         }
 
         /// <inheritdoc />
@@ -69,6 +70,7 @@
             serviceCollection.AddLogging(loggingBuilder =>
                 loggingBuilder.AddSerilog(dispose: true));
             serviceCollection.AddMapster();
+            serviceCollection.AddHttpClient();
 
             var container = new UnityContainer();
             container.BuildServiceProvider(serviceCollection);

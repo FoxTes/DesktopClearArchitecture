@@ -1,16 +1,17 @@
 ﻿namespace DesktopClearArchitecture.Domain.Abstractions
 {
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Models;
 
     /// <summary>
-    /// Music player.
+    /// Game searcher.
     /// </summary>
-    public interface IMusicPlayer
+    public interface IGameSearcher
     {
         /// <summary>
-        /// Get all songs.
+        /// Get all game on steam platform.
         /// </summary>
-        IEnumerable<Song> GetSongs();
+        Task<IEnumerable<Game>> GetGames();
     }
 }

@@ -7,5 +7,7 @@
     /// View model for <see cref="ProductsControl"/>.
     /// </summary>
     public class ProductsControlViewModel : NavigationViewModelBase
-    {}
+    {
+        // Temporarily.
+    }
 }

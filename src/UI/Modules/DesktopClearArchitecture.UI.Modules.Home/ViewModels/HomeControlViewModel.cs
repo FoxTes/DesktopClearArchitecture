@@ -7,5 +7,7 @@
     /// View model for <see cref="HomeControl"/>.
     /// </summary>
     public class HomeControlViewModel : NavigationViewModelBase
-    {}
+    {
+        // Temporarily.
+    }
 }

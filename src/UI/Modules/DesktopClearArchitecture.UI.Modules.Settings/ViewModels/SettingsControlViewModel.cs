@@ -7,5 +7,7 @@
     /// View model for <see cref="SettingsControl"/>.
     /// </summary>
     public class SettingsControlViewModel : NavigationViewModelBase
-    {}
+    {
+        // Temporarily.
+    }
 }

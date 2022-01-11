@@ -1,7 +1,7 @@
 ﻿namespace DesktopClearArchitecture.Application.Profiles
 {
     using AutoMapper;
-    using Domain.Entities;
+    using Domain.Models;
     using Dtos;
 
     /// <summary>

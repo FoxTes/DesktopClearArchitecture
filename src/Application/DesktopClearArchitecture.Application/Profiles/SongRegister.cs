@@ -1,6 +1,6 @@
 ﻿namespace DesktopClearArchitecture.Application.Profiles
 {
-    using Domain.Entities;
+    using Domain.Models;
     using Dtos;
     using Mapster;
 

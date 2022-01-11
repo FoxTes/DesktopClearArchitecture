@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     
     <ItemGroup>
-      <Folder Include="Common" />
       <Folder Include="Enums" />
       <Folder Include="Events" />
       <Folder Include="Exceptions" />

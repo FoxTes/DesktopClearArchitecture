@@ -1,4 +1,4 @@
-﻿namespace DesktopClearArchitecture.Domain.Entities
+﻿namespace DesktopClearArchitecture.Domain.Models
 {
     /// <summary>
     /// Song.

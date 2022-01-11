@@ -2,6 +2,7 @@
 using AutoMapper;
 using DesktopClearArchitecture.Application.Dtos;
 using DesktopClearArchitecture.Domain.Entities;
+using DesktopClearArchitecture.Domain.Models;
 using FastExpressionCompiler;
 using Mapster;
 

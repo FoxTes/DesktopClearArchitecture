@@ -1,4 +1,5 @@
 ﻿<UserControl
+    d:DataContext="{d:DesignInstance viewModels:GamesControlViewModel}"
     d:DesignHeight="300"
     d:DesignWidth="300"
     mc:Ignorable="d"
@@ -6,12 +7,38 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:DesktopClearArchitecture.UI.Modules.Games.ViewModels"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid>
-        <TextBlock
-            FontSize="32"
-            HorizontalAlignment="Center"
-            Text="This is games page."
-            VerticalAlignment="Center" />
+        <StackPanel>
+            <TextBlock
+                FontSize="32"
+                HorizontalAlignment="Center"
+                Text="This is games page."
+                VerticalAlignment="Center" />
+
+            <Button
+                Command="{Binding GetAllGames}"
+                Content="Get all games"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" />
+
+            <ItemsControl
+                HorizontalAlignment="Center"
+                ItemsSource="{Binding Games.Value}"
+                VerticalAlignment="Center">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
     </Grid>
 </UserControl>
