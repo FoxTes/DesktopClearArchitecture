@@ -8,7 +8,6 @@
     using Infrastructure.Services;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Logging;
     using Prism.Ioc;
     using Prism.Modularity;
     using Prism.Unity;
@@ -25,23 +24,21 @@
     /// <inheritdoc />
     public partial class App
     {
-        private ILogger<App> _logger;
+        private ILogger _logger;
 
         /// <inheritdoc />
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            _logger = Container
-                .GetContainer()
-                .Resolve<ILogger<App>>();
-            _logger.LogInformation("Start application.");
+            _logger = Log.ForContext<App>();
+            _logger.Information("Start application. Start args count: {Count}.", e.Args.Length);
         }
 
         /// <inheritdoc />
         protected override void OnExit(ExitEventArgs e)
         {
-            _logger.LogInformation("Exit application.");
+            _logger.Information("Exit application. Exit code: {Code}.", e.ApplicationExitCode);
 
             base.OnExit(e);
         }

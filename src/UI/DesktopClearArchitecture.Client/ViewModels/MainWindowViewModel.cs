@@ -14,6 +14,7 @@
     using ModernWpf.Controls;
     using Prism.Regions;
     using Reactive.Bindings;
+    using Serilog;
     using Shared.Constants;
     using Views;
 
