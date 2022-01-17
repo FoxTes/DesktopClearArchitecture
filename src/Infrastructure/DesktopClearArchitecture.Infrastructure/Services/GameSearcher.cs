@@ -6,9 +6,10 @@
     using DesktopClearArchitecture.Domain.Models;
     using Domain.Abstractions;
     using Models;
+    using Scrutor.AspNetCore;
 
-    /// <inheritdoc />
-    public class GameSearcher : IGameSearcher
+    /// <inheritdoc cref="DesktopClearArchitecture.Domain.Abstractions.IGameSearcher" />
+    public class GameSearcher : IGameSearcher, ISingletonLifetime
     {
         private readonly HttpClient _httpClient;
 

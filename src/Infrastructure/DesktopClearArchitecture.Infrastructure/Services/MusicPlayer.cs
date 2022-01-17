@@ -5,9 +5,10 @@
     using System.Linq;
     using DesktopClearArchitecture.Domain.Models;
     using Domain.Abstractions;
+    using Scrutor.AspNetCore;
 
-    /// <inheritdoc />
-    public class MusicPlayer : IMusicPlayer
+    /// <inheritdoc cref="Scrutor.AspNetCore.ISingletonLifetime" />
+    public class MusicPlayer : IMusicPlayer, ISingletonLifetime
     {
         private static readonly string[] NameSongs =
         {

@@ -4,8 +4,6 @@
     using System.IO;
     using System.Windows;
     using Application.Extensions;
-    using Domain.Abstractions;
-    using Infrastructure.Services;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Prism.Ioc;
@@ -56,8 +54,6 @@
         /// <inheritdoc />
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<IMusicPlayer, MusicPlayer>();
-            containerRegistry.RegisterSingleton<IGameSearcher, GameSearcher>();
         }
 
         /// <inheritdoc />
@@ -68,6 +64,7 @@
                 loggingBuilder.AddSerilog(dispose: true));
             serviceCollection.AddMapster();
             serviceCollection.AddHttpClient();
+            serviceCollection.AddAdvancedDependencyInjection();
 
             var container = new UnityContainer();
             container.BuildServiceProvider(serviceCollection);
