@@ -1,0 +1,55 @@
+﻿version: '3.4'
+
+services:
+
+  db:
+    image: postgres:13.4
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: qwerty!2345
+    volumes:
+      - /mnt/updaterDb:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    shm_size: '512m'
+
+  seq-input-gelf:
+    image: datalust/seq-input-gelf:latest
+    depends_on:
+      - seq
+    ports:
+      - "12201:12201/udp"
+    environment:
+      SEQ_ADDRESS: "http://seq:5342"
+    restart: unless-stopped
+
+  seq:
+    image: datalust/seq:latest
+    ports:
+      - "5342:80"
+    environment:
+      ACCEPT_EULA: Y
+    restart: unless-stopped
+    volumes:
+      - ./seq-data:/data
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.4.2
+    environment:
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+    networks:
+      - "elk-net"
+      
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.4.2
+    ports:
+      - "5601:5601"
+    networks:
+      - "elk-net"
+      
+networks:
+  elk-net:

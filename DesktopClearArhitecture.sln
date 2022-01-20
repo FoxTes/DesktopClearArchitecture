@@ -56,6 +56,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchs", "benchs", "{2A0EDE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Infrastructure.Bench", "benchs\DesktopClearArchitecture.Infrastructure.Bench\DesktopClearArchitecture.Infrastructure.Bench.csproj", "{0C0FB20D-B1E6-432F-B7CD-40E7D3DF300D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{41240DE6-89B7-4748-8936-A64108B22FD7}"
+ProjectSection(SolutionItems) = preProject
+	docker-compose.yml = docker-compose.yml
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
