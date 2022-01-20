@@ -69,7 +69,7 @@ namespace DesktopClearArchitecture.Infrastructure.Bench
             var songs = _musicPlayer
                 .GetSongs()
                 .ToArray();
-            var t1 = songs.Adapt<SongDto[]>();
+            _ = songs.Adapt<SongDto[]>();
         }
     }
 }
