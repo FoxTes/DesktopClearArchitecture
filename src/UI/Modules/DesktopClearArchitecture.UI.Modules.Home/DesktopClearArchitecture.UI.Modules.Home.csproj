@@ -6,7 +6,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="ModernWpfUis" Version="1.4.0" />
         <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+        <PackageReference Include="ReactiveProperty" Version="8.0.3" />
     </ItemGroup>
 
     <ItemGroup>

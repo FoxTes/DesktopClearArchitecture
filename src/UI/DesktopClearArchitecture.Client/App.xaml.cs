@@ -4,6 +4,8 @@
     using System.IO;
     using System.Windows;
     using Application.Extensions;
+    using DesktopClearArchitecture.UI.Dialogs.Authorization.ViewModels;
+    using DesktopClearArchitecture.UI.Dialogs.Authorization.Views;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Prism.Ioc;
@@ -54,6 +56,7 @@
         /// <inheritdoc />
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterDialog<AuthorizationControl, AuthorizationControlViewModel>("AuthorizationDialog");
         }
 
         /// <inheritdoc />
