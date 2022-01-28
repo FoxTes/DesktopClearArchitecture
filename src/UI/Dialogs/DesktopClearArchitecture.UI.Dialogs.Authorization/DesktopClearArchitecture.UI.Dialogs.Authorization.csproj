@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <UseWPF>true</UseWPF>
+        <CodeAnalysisRuleSet>..\..\..\..\stylecop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\DesktopClearArchitecture.Shared\DesktopClearArchitecture.Shared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="ModernWpfUis" Version="1.4.0" />
+      <PackageReference Include="ReactiveProperty" Version="8.0.3" />
+    </ItemGroup>
+
+</Project>
