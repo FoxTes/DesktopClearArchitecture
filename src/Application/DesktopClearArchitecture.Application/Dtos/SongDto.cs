@@ -3,7 +3,7 @@
     /// <summary>
     /// Song dto.
     /// </summary>
-    public readonly struct SongDto
+    public readonly record struct SongDto
     {
         /// <summary>
         /// Full name song.

@@ -5,7 +5,7 @@
     /// <summary>
     /// Song.
     /// </summary>
-    public readonly struct Game
+    public readonly record struct Game
     {
         /// <summary>
         /// Name.

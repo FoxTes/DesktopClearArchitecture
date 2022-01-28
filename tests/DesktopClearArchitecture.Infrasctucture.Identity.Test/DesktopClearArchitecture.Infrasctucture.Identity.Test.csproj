@@ -15,11 +15,7 @@
     </ItemGroup>
 
     <PropertyGroup>
-        <CodeAnalysisRuleSet>..\..\..\..\stylecop.ruleset</CodeAnalysisRuleSet>
+        <CodeAnalysisRuleSet>..\..\stylecop.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\src\Infrastructure\DesktopClearArchitecture.Infrasctucture\DesktopClearArchitecture.Infrasctucture.csproj" />
-    </ItemGroup>
-
+    
 </Project>

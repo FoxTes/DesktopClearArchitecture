@@ -1,6 +1,6 @@
 ﻿namespace DesktopClearArchitecture.UI.Modules.Games.ViewModels
 {
-    using System.Collections.Generic;
+    using System;
     using System.Linq;
     using DesktopClearArchitecture.Shared.ViewModels;
     using Domain.Abstractions;
@@ -13,20 +13,24 @@
     /// </summary>
     public class GamesControlViewModel : NavigationViewModelBase
     {
+        private readonly Random _random = new();
+
         /// <inheritdoc />
         public GamesControlViewModel(IGameSearcher gameSearcher)
         {
             GetAllGames.WithSubscribe(async () =>
             {
-                var games = await gameSearcher.GetGames();
-                Games.Value = games.ToList();
+                Games.Value = (await gameSearcher.GetGames())
+                    .Skip(_random.Next(100, 5000))
+                    .Take(20)
+                    .ToArray();
             });
         }
 
         /// <summary>
         /// Navigation search items.
         /// </summary>
-        public ReactiveProperty<List<Game>> Games { get; } = new();
+        public ReactiveProperty<Game[]> Games { get; } = new();
 
         /// <summary>
         /// Create navigation menu.
