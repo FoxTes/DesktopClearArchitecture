@@ -1,15 +1,14 @@
 ﻿using BenchmarkDotNet.Running;
 
-namespace DesktopClearArchitecture.Infrastructure.Bench
+namespace DesktopClearArchitecture.Infrastructure.Bench;
+
+/// <summary>
+/// Main.
+/// </summary>
+public static class Program
 {
-    /// <summary>
-    /// Main.
-    /// </summary>
-    public static class Program
+    private static void Main()
     {
-        private static void Main()
-        {
-            BenchmarkRunner.Run<ServicesBench>();
-        }
+        BenchmarkRunner.Run<ServicesBench>();
     }
 }

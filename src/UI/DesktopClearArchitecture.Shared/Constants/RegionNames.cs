@@ -1,13 +1,12 @@
-﻿namespace DesktopClearArchitecture.Shared.Constants
+﻿namespace DesktopClearArchitecture.Shared.Constants;
+
+/// <summary>
+/// A static class that provides the name of the regions.
+/// </summary>
+public static class RegionNames
 {
     /// <summary>
-    /// A static class that provides the name of the regions.
+    /// Main content.
     /// </summary>
-    public static class RegionNames
-    {
-        /// <summary>
-        /// Main content.
-        /// </summary>
-        public const string MainContent = "MainContent";
-    }
+    public const string MainContent = "MainContent";
 }

@@ -17,4 +17,8 @@
       <ProjectReference Include="..\..\src\Infrastructure\DesktopClearArchitecture.Infrastructure\DesktopClearArchitecture.Infrastructure.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="Span.cs" />
+    </ItemGroup>
+
 </Project>

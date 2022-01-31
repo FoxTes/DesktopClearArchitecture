@@ -1,22 +1,21 @@
-﻿namespace DesktopClearArchitecture.UI.Modules.Music
+﻿namespace DesktopClearArchitecture.UI.Modules.Music;
+
+using Prism.Ioc;
+using Prism.Modularity;
+using ViewModels;
+using Views;
+
+/// <inheritdoc />
+public class MusicModule : IModule
 {
-    using Prism.Ioc;
-    using Prism.Modularity;
-    using ViewModels;
-    using Views;
+    /// <inheritdoc />
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        containerRegistry.RegisterForNavigation<MusicControl, MusicControlViewModel>();
+    }
 
     /// <inheritdoc />
-    public class MusicModule : IModule
+    public void OnInitialized(IContainerProvider containerProvider)
     {
-        /// <inheritdoc />
-        public void RegisterTypes(IContainerRegistry containerRegistry)
-        {
-            containerRegistry.RegisterForNavigation<MusicControl, MusicControlViewModel>();
-        }
-
-        /// <inheritdoc />
-        public void OnInitialized(IContainerProvider containerProvider)
-        {
-        }
     }
 }

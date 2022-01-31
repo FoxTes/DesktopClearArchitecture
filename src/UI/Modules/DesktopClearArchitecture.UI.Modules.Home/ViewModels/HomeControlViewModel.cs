@@ -1,38 +1,37 @@
-﻿namespace DesktopClearArchitecture.UI.Modules.Home.ViewModels
+﻿namespace DesktopClearArchitecture.UI.Modules.Home.ViewModels;
+
+using DesktopClearArchitecture.Shared.ViewModels;
+using Prism.Services.Dialogs;
+using Reactive.Bindings;
+using Views;
+
+/// <summary>
+/// View model for <see cref="HomeControl"/>.
+/// </summary>
+public class HomeControlViewModel : NavigationViewModelBase
 {
-    using DesktopClearArchitecture.Shared.ViewModels;
-    using Prism.Services.Dialogs;
-    using Reactive.Bindings;
-    using Views;
+    /// <inheritdoc />
+    public HomeControlViewModel(IDialogService dialogService)
+    {
+        var parameters = new DialogParameters
+        {
+            { "FirstParam", 1 },
+            { "SecondParam", 2 }
+        };
+
+        ShowWindowAuthorization.Subscribe(() =>
+            dialogService.Show("AuthorizationDialog", parameters, _ => { }));
+        ShowDialogAuthorization.Subscribe(() =>
+            dialogService.ShowDialog("AuthorizationDialog", parameters, _ => { }));
+    }
 
     /// <summary>
-    /// View model for <see cref="HomeControl"/>.
+    /// Show window authorization.
     /// </summary>
-    public class HomeControlViewModel : NavigationViewModelBase
-    {
-        /// <inheritdoc />
-        public HomeControlViewModel(IDialogService dialogService)
-        {
-            var parameters = new DialogParameters
-            {
-                { "FirstParam", 1 },
-                { "SecondParam", 2 }
-            };
+    public ReactiveCommand ShowWindowAuthorization { get; } = new();
 
-            ShowWindowAuthorization.Subscribe(() =>
-                dialogService.Show("AuthorizationDialog", parameters, _ => { }));
-            ShowDialogAuthorization.Subscribe(() =>
-                dialogService.ShowDialog("AuthorizationDialog", parameters, _ => { }));
-        }
-
-        /// <summary>
-        /// Show window authorization.
-        /// </summary>
-        public ReactiveCommand ShowWindowAuthorization { get; } = new();
-
-        /// <summary>
-        /// Show dialog authorization.
-        /// </summary>
-        public ReactiveCommand ShowDialogAuthorization { get; } = new();
-    }
+    /// <summary>
+    /// Show dialog authorization.
+    /// </summary>
+    public ReactiveCommand ShowDialogAuthorization { get; } = new();
 }

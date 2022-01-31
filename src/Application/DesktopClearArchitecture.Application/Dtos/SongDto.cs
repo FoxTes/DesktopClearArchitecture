@@ -1,16 +1,15 @@
-﻿namespace DesktopClearArchitecture.Application.Dtos
+﻿namespace DesktopClearArchitecture.Application.Dtos;
+
+/// <summary>
+/// Song dto.
+/// </summary>
+public readonly record struct SongDto
 {
     /// <summary>
-    /// Song dto.
+    /// Full name song.
     /// </summary>
-    public readonly record struct SongDto
-    {
-        /// <summary>
-        /// Full name song.
-        /// </summary>
-        public string FullName { get; init; }
+    public string FullName { get; init; }
 
-        /// <inheritdoc />
-        public override string ToString() => FullName;
-    }
+    /// <inheritdoc />
+    public override string ToString() => FullName;
 }

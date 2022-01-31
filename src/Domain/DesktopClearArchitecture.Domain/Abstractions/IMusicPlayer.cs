@@ -1,16 +1,15 @@
-﻿namespace DesktopClearArchitecture.Domain.Abstractions
-{
-    using System.Collections.Generic;
-    using Models;
+﻿namespace DesktopClearArchitecture.Domain.Abstractions;
 
+using System.Collections.Generic;
+using Models;
+
+/// <summary>
+/// Music player.
+/// </summary>
+public interface IMusicPlayer
+{
     /// <summary>
-    /// Music player.
+    /// Get all songs.
     /// </summary>
-    public interface IMusicPlayer
-    {
-        /// <summary>
-        /// Get all songs.
-        /// </summary>
-        IEnumerable<Song> GetSongs();
-    }
+    IEnumerable<Song> GetSongs();
 }

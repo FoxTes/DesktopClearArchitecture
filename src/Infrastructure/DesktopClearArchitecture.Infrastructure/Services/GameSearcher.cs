@@ -1,35 +1,34 @@
-﻿namespace DesktopClearArchitecture.Infrastructure.Services
+﻿namespace DesktopClearArchitecture.Infrastructure.Services;
+
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using DesktopClearArchitecture.Domain.Models;
+using Domain.Abstractions;
+using Models;
+using Scrutor.AspNetCore;
+
+/// <inheritdoc cref="DesktopClearArchitecture.Domain.Abstractions.IGameSearcher" />
+public class GameSearcher : IGameSearcher, ISingletonLifetime
 {
-    using System.Collections.Generic;
-    using System.Net.Http;
-    using System.Threading.Tasks;
-    using DesktopClearArchitecture.Domain.Models;
-    using Domain.Abstractions;
-    using Models;
-    using Scrutor.AspNetCore;
+    private readonly HttpClient _httpClient;
 
-    /// <inheritdoc cref="DesktopClearArchitecture.Domain.Abstractions.IGameSearcher" />
-    public class GameSearcher : IGameSearcher, ISingletonLifetime
+    /// <summary>
+    /// Initializes a new instance of the <see cref="GameSearcher"/> class.
+    /// </summary>
+    /// <param name="httpClient"><see cref="HttpClient"/>.</param>
+    public GameSearcher(HttpClient httpClient)
     {
-        private readonly HttpClient _httpClient;
+        _httpClient = httpClient;
+    }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GameSearcher"/> class.
-        /// </summary>
-        /// <param name="httpClient"><see cref="HttpClient"/>.</param>
-        public GameSearcher(HttpClient httpClient)
-        {
-            _httpClient = httpClient;
-        }
+    /// <inheritdoc />
+    public async Task<IEnumerable<Game>> GetGames()
+    {
+        var response = await _httpClient.GetAsync("https://api.steampowered.com/ISteamApps/GetAppList/v0002/?format=json");
+        response.EnsureSuccessStatusCode();
 
-        /// <inheritdoc />
-        public async Task<IEnumerable<Game>> GetGames()
-        {
-            var response = await _httpClient.GetAsync("https://api.steampowered.com/ISteamApps/GetAppList/v0002/?format=json");
-            response.EnsureSuccessStatusCode();
-
-            var stream = await response.Content.ReadAsStreamAsync();
-            return Utf8Json.JsonSerializer.Deserialize<Root>(stream).GameList.Games;
-        }
+        var stream = await response.Content.ReadAsStreamAsync();
+        return Utf8Json.JsonSerializer.Deserialize<Root>(stream).GameList.Games;
     }
 }

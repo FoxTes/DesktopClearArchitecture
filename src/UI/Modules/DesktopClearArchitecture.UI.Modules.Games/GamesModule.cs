@@ -1,22 +1,21 @@
-﻿namespace DesktopClearArchitecture.UI.Modules.Games
+﻿namespace DesktopClearArchitecture.UI.Modules.Games;
+
+using Prism.Ioc;
+using Prism.Modularity;
+using ViewModels;
+using Views;
+
+/// <inheritdoc />
+public class GamesModule : IModule
 {
-    using Prism.Ioc;
-    using Prism.Modularity;
-    using ViewModels;
-    using Views;
+    /// <inheritdoc />
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        containerRegistry.RegisterForNavigation<GamesControl, GamesControlViewModel>();
+    }
 
     /// <inheritdoc />
-    public class GamesModule : IModule
+    public void OnInitialized(IContainerProvider containerProvider)
     {
-        /// <inheritdoc />
-        public void RegisterTypes(IContainerRegistry containerRegistry)
-        {
-            containerRegistry.RegisterForNavigation<GamesControl, GamesControlViewModel>();
-        }
-
-        /// <inheritdoc />
-        public void OnInitialized(IContainerProvider containerProvider)
-        {
-        }
     }
 }

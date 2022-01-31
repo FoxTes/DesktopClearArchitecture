@@ -1,21 +1,20 @@
-﻿namespace DesktopClearArchitecture.Client.Models
+﻿namespace DesktopClearArchitecture.Client.Models;
+
+/// <summary>
+/// Data navigation view.
+/// </summary>
+public readonly struct DataNavigationView
 {
     /// <summary>
-    /// Data navigation view.
+    /// Name content element.
     /// </summary>
-    public readonly struct DataNavigationView
-    {
-        /// <summary>
-        /// Name content element.
-        /// </summary>
-        public string NameContentElement { get; init; }
+    public string NameContentElement { get; init; }
 
-        /// <summary>
-        /// Name control.
-        /// </summary>
-        public string NameControl { get; init; }
+    /// <summary>
+    /// Name control.
+    /// </summary>
+    public string NameControl { get; init; }
 
-        /// <inheritdoc />
-        public override string ToString() => NameContentElement;
-    }
+    /// <inheritdoc />
+    public override string ToString() => NameContentElement;
 }

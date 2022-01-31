@@ -1,14 +1,13 @@
-﻿namespace DesktopClearArchitecture.UI.Modules.Home.Views
+﻿namespace DesktopClearArchitecture.UI.Modules.Home.Views;
+
+/// <summary>
+/// Interaction logic for <see cref="HomeControl"/>.
+/// </summary>
+public partial class HomeControl
 {
-    /// <summary>
-    /// Interaction logic for <see cref="HomeControl"/>.
-    /// </summary>
-    public partial class HomeControl
+    /// <inheritdoc />
+    public HomeControl()
     {
-        /// <inheritdoc />
-        public HomeControl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

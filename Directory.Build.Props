@@ -7,6 +7,7 @@
         <CodeAnalysisRuleSet>..\..\..\stylecop.ruleset</CodeAnalysisRuleSet>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <NoWarn>NU1701</NoWarn>
+        <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
     
     <ItemGroup Condition=" '$(ProjectName)' != '_build' And !'$(ProjectName.EndsWith(`Test`))' And !'$(ProjectName.EndsWith(`Bench`))'">

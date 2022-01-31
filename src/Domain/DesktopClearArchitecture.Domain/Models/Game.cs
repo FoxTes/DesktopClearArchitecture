@@ -1,22 +1,21 @@
-﻿namespace DesktopClearArchitecture.Domain.Models
+﻿namespace DesktopClearArchitecture.Domain.Models;
+
+using System.Runtime.Serialization;
+
+/// <summary>
+/// Song.
+/// </summary>
+public readonly record struct Game
 {
-    using System.Runtime.Serialization;
+    /// <summary>
+    /// Name.
+    /// </summary>
+    [DataMember(Name = "appid")]
+    public int Id { get; init; }
 
     /// <summary>
-    /// Song.
+    /// Duration.
     /// </summary>
-    public readonly record struct Game
-    {
-        /// <summary>
-        /// Name.
-        /// </summary>
-        [DataMember(Name = "appid")]
-        public int Id { get; init; }
-
-        /// <summary>
-        /// Duration.
-        /// </summary>
-        [DataMember(Name = "name")]
-        public string Name { get; init; }
-    }
+    [DataMember(Name = "name")]
+    public string Name { get; init; }
 }

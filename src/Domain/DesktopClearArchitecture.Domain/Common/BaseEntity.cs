@@ -1,13 +1,12 @@
-﻿namespace DesktopClearArchitecture.Domain.Common
+﻿namespace DesktopClearArchitecture.Domain.Common;
+
+/// <summary>
+/// Base entity.
+/// </summary>
+public abstract class BaseEntity
 {
     /// <summary>
-    /// Base entity.
+    /// Id.
     /// </summary>
-    public abstract class BaseEntity
-    {
-        /// <summary>
-        /// Id.
-        /// </summary>
-        public virtual long Id { get; set; }
-    }
+    public virtual long Id { get; set; }
 }
