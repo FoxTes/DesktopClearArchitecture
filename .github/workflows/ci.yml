@@ -27,9 +27,9 @@ jobs:
     env:
       App_Packages_Directory: AppPackages
       SigningCertificate: GitHubActionsDemo.pfx
-      Solution_Path: MyWpfApp.sln
-      Test_Project_Path: MyWpfApp.Tests\MyWpfApp.Tests.csproj
-      Wpf_Project_Path: MyWpfApp\MyWpfApp.csproj
+      Solution_Path: DesktopClearArhitecture.sln
+      Test_Project_Path: tests\DesktopClearArchitecture.Infrasctucture.Identity.Test\DesktopClearArchitecture.Infrasctucture.Identity.Test.csproj
+      Wpf_Project_Path: src\UI\DesktopClearArchitecture.Client\DesktopClearArchitecture.Client.csproj
       Wap_Project_Directory: MyWpfApp.Package
       Wap_Project_Name: MyWpfApp.Package.wapproj
       Actions_Allow_Unsecure_Commands: true # Allows AddPAth and SetEnv commands
