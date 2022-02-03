@@ -63,7 +63,7 @@ public class UnitOfWork : IUnitOfWork
     }
 
     /// <summary>
-    ///     Dispose.
+    /// Dispose.
     /// </summary>
     /// <param name="disposing">Is dispose.</param>
     protected virtual void Dispose(bool disposing)
