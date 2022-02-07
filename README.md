@@ -37,6 +37,10 @@ Contributions are what make the open-source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+## Special thanks to
+
+[![JetBrains](https://cdn.icon-icons.com/icons2/2530/PNG/512/jetbrains_rider_button_icon_151875.png)](https://www.jetbrains.com/?from=DesktopClearArchitecture)
+
 ## License
 
 Distributed under the MIT License.
@@ -45,7 +49,7 @@ Distributed under the MIT License.
 ### Georgy Levchenko
 
 -   <a href="mailto:lewshadow@gmail.com?"><img src="https://img.shields.io/badge/gmail-%23DD0031.svg?&style=for-the-badge&logo=gmail&logoColor=white"/></a>
--   Telegram - [Levchenko Georgy](https://t.me/foxtes)
+-   Telegram - [Georgy Levchenko](https://t.me/foxtes)
 
 ## Support :star:
 
