@@ -63,6 +63,7 @@ public partial class App
     protected override IContainerExtension CreateContainerExtension()
     {
         var serviceCollection = new ServiceCollection();
+        serviceCollection.AddLazyCache();
         serviceCollection.AddLogging(loggingBuilder =>
             loggingBuilder.AddSerilog(dispose: true));
         serviceCollection.AddMapster();
