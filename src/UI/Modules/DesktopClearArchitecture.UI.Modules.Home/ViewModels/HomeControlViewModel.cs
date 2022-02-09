@@ -23,6 +23,8 @@ public class HomeControlViewModel : NavigationViewModelBase
             dialogService.Show("AuthorizationDialog", parameters, _ => { }));
         ShowDialogAuthorization.Subscribe(() =>
             dialogService.ShowDialog("AuthorizationDialog", parameters, _ => { }));
+        CreateСustomException.Subscribe(() =>
+                throw new Exception("Test custom exception."));
     }
 
     /// <summary>
@@ -34,4 +36,9 @@ public class HomeControlViewModel : NavigationViewModelBase
     /// Show dialog authorization.
     /// </summary>
     public ReactiveCommand ShowDialogAuthorization { get; } = new();
+
+    /// <summary>
+    /// Create custom exception.
+    /// </summary>
+    public ReactiveCommand CreateСustomException { get; } = new();
 }

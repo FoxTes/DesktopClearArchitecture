@@ -37,6 +37,18 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center" />
             </ui:SimpleStackPanel>
+            
+            <TextBlock
+                FontSize="18"
+                HorizontalAlignment="Center"
+                Text="Interactions with exceptions"
+                VerticalAlignment="Center" />
+            
+            <Button
+                Command="{Binding CreateСustomException}"
+                Content="Create custom exception"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" />
         </ui:SimpleStackPanel>
     </Grid>
 </UserControl>

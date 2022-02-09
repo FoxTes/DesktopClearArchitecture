@@ -3,6 +3,8 @@
 using System;
 using System.IO;
 using System.Windows;
+using System.Windows.Threading;
+using System.Diagnostics;
 using Application.Extensions;
 using DesktopClearArchitecture.UI.Dialogs.Authorization.ViewModels;
 using DesktopClearArchitecture.UI.Dialogs.Authorization.Views;
@@ -25,6 +27,12 @@ using Views;
 public partial class App
 {
     private ILogger _logger;
+
+    /// <inheritdoc />
+    public App()
+    {
+        Current.DispatcherUnhandledException += CurrentOnDispatcherUnhandledException;
+    }
 
     /// <inheritdoc />
     protected override void OnStartup(StartupEventArgs e)
@@ -96,5 +104,44 @@ public partial class App
         Log.Logger = new LoggerConfiguration()
             .ReadFrom.Configuration(configuration)
             .CreateLogger();
+    }
+
+    private static void ShowUnhandledException(DispatcherUnhandledExceptionEventArgs e)
+    {
+        e.Handled = true;
+
+        var error = e.Exception.Message +
+                    (e.Exception.InnerException != null ? "\n" + e.Exception.InnerException.Message : null);
+        var errorMessage =
+            "An application error occurred.\nPlease check whether your data is correct and repeat the action. " +
+            "If this error occurs again there seems to be a more serious malfunction in the application, " +
+            $"and you better close it.\n\nError: {error}\n\n" + "Do you want to continue?\n" +
+            "(If you click 'Yes' you will continue with your work, if you click 'No' the application will close).";
+
+        if (MessageBox.Show(
+                errorMessage,
+                "Application Error.",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Error) != MessageBoxResult.No)
+            return;
+        if (MessageBox.Show(
+                "WARNING: The application will close. Any changes will not be saved!\n\n" +
+                "Do you really want to close it?",
+                "Close the application!",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning) == MessageBoxResult.Yes)
+        {
+            Current.Shutdown();
+        }
+    }
+
+    private void CurrentOnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+    {
+        _logger.Warning(e.Exception.Demystify(), "Application Error.");
+
+        if (Debugger.IsAttached)
+            e.Handled = false;
+        else
+            ShowUnhandledException(e);
     }
 }
