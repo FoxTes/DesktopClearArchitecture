@@ -1,8 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Prism.Core" Version="8.1.97" />
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+    <PackageReference Include="UnitsNet" Version="4.120.0" />
   </ItemGroup>
   
 </Project>

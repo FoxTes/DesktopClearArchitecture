@@ -65,6 +65,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dialogs", "Dialogs", "{159E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.UI.Dialogs.Authorization", "src\UI\Dialogs\DesktopClearArchitecture.UI.Dialogs.Authorization\DesktopClearArchitecture.UI.Dialogs.Authorization.csproj", "{7A199108-9CEF-4326-B8BE-42A9A42161D3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.UI.Shared", "tests\DesktopClearArchitecture.UI.Shared\DesktopClearArchitecture.UI.Shared.csproj", "{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -258,6 +260,18 @@ Global
 		{7A199108-9CEF-4326-B8BE-42A9A42161D3}.Release|x64.Build.0 = Release|Any CPU
 		{7A199108-9CEF-4326-B8BE-42A9A42161D3}.Release|x86.ActiveCfg = Release|Any CPU
 		{7A199108-9CEF-4326-B8BE-42A9A42161D3}.Release|x86.Build.0 = Release|Any CPU
+		{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}.Debug|x64.Build.0 = Debug|Any CPU
+		{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}.Debug|x86.Build.0 = Debug|Any CPU
+		{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}.Release|x64.ActiveCfg = Release|Any CPU
+		{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}.Release|x64.Build.0 = Release|Any CPU
+		{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}.Release|x86.ActiveCfg = Release|Any CPU
+		{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F19B327B-0830-46BF-B041-78ADA2077D64} = {2085163C-7BCB-4625-A63F-AD9EE86FD24F}
@@ -281,5 +295,6 @@ Global
 		{0C0FB20D-B1E6-432F-B7CD-40E7D3DF300D} = {2A0EDE92-5EF3-456C-A2F3-7F0B3CE11F12}
 		{159E30A1-3A11-4E91-84BB-CC4FCFB024B6} = {02E9CD84-7D81-4943-828D-C7D6DF3C4863}
 		{7A199108-9CEF-4326-B8BE-42A9A42161D3} = {159E30A1-3A11-4E91-84BB-CC4FCFB024B6}
+		{3FD5B281-06EE-4D74-9158-1C7D91FB69C0} = {C88C0AF8-A3A8-4E2B-BC32-114B411857C0}
 	EndGlobalSection
 EndGlobal
