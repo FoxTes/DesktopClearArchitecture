@@ -7,6 +7,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Domain\DesktopClearArchitecture.Domain\DesktopClearArchitecture.Domain.csproj" />
+      <ProjectReference Include="..\..\Infrastructure\DesktopClearArchitecture.Infrastructure.Persistence\DesktopClearArchitecture.Infrastructure.Persistence.csproj" />
       <ProjectReference Include="..\..\Infrastructure\DesktopClearArchitecture.Infrastructure\DesktopClearArchitecture.Infrastructure.csproj" />
       <ProjectReference Include="..\DesktopClearArchitecture.Shared\DesktopClearArchitecture.Shared.csproj" />
       <ProjectReference Include="..\Dialogs\DesktopClearArchitecture.UI.Dialogs.Authorization\DesktopClearArchitecture.UI.Dialogs.Authorization.csproj" />

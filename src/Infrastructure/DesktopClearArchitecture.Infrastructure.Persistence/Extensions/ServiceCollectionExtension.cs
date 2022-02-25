@@ -36,6 +36,19 @@ public static class ServiceCollectionExtension
     }
 
     /// <summary>
+    /// Added migrations database.
+    /// </summary>
+    /// <param name="services"><see cref="IServiceCollection"/>.</param>
+    public static IServiceCollection AddMigrationsDatabase(this IServiceCollection services)
+    {
+        var serviceProvider = services.BuildServiceProvider();
+        var service = serviceProvider.GetRequiredService<ApplicationDbContext>();
+
+        service.Database.Migrate();
+        return services;
+    }
+
+    /// <summary>
     /// Add repositories.
     /// </summary>
     /// <param name="services"><see cref="IServiceCollection"/>.</param>
