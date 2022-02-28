@@ -5,7 +5,9 @@ using DesktopClearArchitecture.Domain.Abstractions.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Repositories;
+using Serilog;
 
 /// <summary>
 /// Extension for <see cref="ServiceCollectionExtension"/>.
@@ -27,9 +29,11 @@ public static class ServiceCollectionExtension
         else
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+                options
+                    .UseSqlServer(
+                        configuration.GetConnectionString("DefaultConnection"),
+                        b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName))
+                    .LogTo(Log.Logger.Information, LogLevel.Information));
         }
 
         return services;

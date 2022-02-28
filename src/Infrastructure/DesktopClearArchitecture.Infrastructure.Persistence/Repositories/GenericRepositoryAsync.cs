@@ -18,7 +18,7 @@ public class GenericRepositoryAsync<T> : IGenericRepositoryAsync<T>
     /// Initializes a new instance of the <see cref="GenericRepositoryAsync{T}"/> class.
     /// </summary>
     /// <param name="dbContext"><see cref="ApplicationDbContext"/>.</param>
-    public GenericRepositoryAsync(ApplicationDbContext dbContext)
+    protected GenericRepositoryAsync(ApplicationDbContext dbContext)
     {
         _dbContext = dbContext;
     }
@@ -69,6 +69,7 @@ public class GenericRepositoryAsync<T> : IGenericRepositoryAsync<T>
     {
         return await _dbContext
             .Set<T>()
+            .AsNoTracking()
             .ToListAsync();
     }
 

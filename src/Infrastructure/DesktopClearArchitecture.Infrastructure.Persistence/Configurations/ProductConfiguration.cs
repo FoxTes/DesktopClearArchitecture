@@ -12,11 +12,11 @@
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.ToTable("Product");
-            builder.Property(s => s.Name);
 
             var ids = 1;
             var stock = new Faker<Product>()
                 .RuleFor(m => m.Id, _ => ids++)
+                .RuleFor(m => m.Created, _ => DateTime.Now)
                 .RuleFor(m => m.Name, f => f.Commerce.ProductName());
             builder.HasData(stock.GenerateBetween(10, 100));
         }

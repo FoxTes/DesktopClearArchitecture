@@ -7,9 +7,12 @@
 
     <ItemGroup>
         <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+        <PackageReference Include="ReactiveProperty" Version="8.0.3" />
+        <PackageReference Include="ReactiveProperty.Core" Version="8.0.3" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\Domain\DesktopClearArchitecture.Domain\DesktopClearArchitecture.Domain.csproj" />
       <ProjectReference Include="..\..\DesktopClearArchitecture.Shared\DesktopClearArchitecture.Shared.csproj" />
     </ItemGroup>
 

@@ -11,4 +11,7 @@ public class Product : AuditableEntity
     /// Name.
     /// </summary>
     public string Name { get; set; }
+
+    /// <inheritdoc />
+    public override string ToString() => Name;
 }

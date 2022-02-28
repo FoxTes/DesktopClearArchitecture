@@ -1,13 +1,14 @@
 ﻿namespace DesktopClearArchitecture.Client;
 
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Threading;
-using System.Diagnostics;
 using Application.Extensions;
 using DesktopClearArchitecture.UI.Dialogs.Authorization.ViewModels;
 using DesktopClearArchitecture.UI.Dialogs.Authorization.Views;
+using Infrastructure.Persistence.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Prism.Ioc;
@@ -27,6 +28,7 @@ using Views;
 public partial class App
 {
     private ILogger _logger;
+    private IConfigurationRoot _configuration;
 
     /// <inheritdoc />
     public App()
@@ -70,13 +72,18 @@ public partial class App
     /// <inheritdoc />
     protected override IContainerExtension CreateContainerExtension()
     {
+        GetConfiguration();
+
         var serviceCollection = new ServiceCollection();
-        serviceCollection.AddLazyCache();
-        serviceCollection.AddLogging(loggingBuilder =>
-            loggingBuilder.AddSerilog(dispose: true));
-        serviceCollection.AddMapster();
-        serviceCollection.AddHttpClient();
-        serviceCollection.AddAdvancedDependencyInjection();
+        serviceCollection
+            .AddLazyCache()
+            .AddLogging(loggingBuilder =>
+                loggingBuilder.AddSerilog(dispose: true))
+            .AddMapster()
+            .AddHttpClient()
+            .AddPersistence(_configuration)
+            .AddRepositories()
+            .AddAdvancedDependencyInjection();
 
         var container = new UnityContainer();
         container.BuildServiceProvider(serviceCollection);
@@ -90,20 +97,6 @@ public partial class App
         ConfigurationLogging();
 
         return Container.Resolve<MainWindow>();
-    }
-
-    private static void ConfigurationLogging()
-    {
-        var currentEnvironment = Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT") ?? "Development";
-        var configuration = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json")
-            .AddJsonFile($"appsettings.{currentEnvironment}.json")
-            .Build();
-
-        Log.Logger = new LoggerConfiguration()
-            .ReadFrom.Configuration(configuration)
-            .CreateLogger();
     }
 
     private static void ShowUnhandledException(DispatcherUnhandledExceptionEventArgs e)
@@ -133,6 +126,23 @@ public partial class App
         {
             Current.Shutdown();
         }
+    }
+
+    private void GetConfiguration()
+    {
+        var currentEnvironment = Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT") ?? "Development";
+        _configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json")
+            .AddJsonFile($"appsettings.{currentEnvironment}.json")
+            .Build();
+    }
+
+    private void ConfigurationLogging()
+    {
+        Log.Logger = new LoggerConfiguration()
+            .ReadFrom.Configuration(_configuration)
+            .CreateLogger();
     }
 
     private void CurrentOnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
