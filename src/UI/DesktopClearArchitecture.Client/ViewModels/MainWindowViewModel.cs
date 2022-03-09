@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Reactive.Linq;
-    using DesktopClearArchitecture.Domain.Abstractions.Repositories;
     using DesktopClearArchitecture.Shared.ViewModels;
     using DesktopClearArchitecture.UI.Modules.Games.Views;
     using DesktopClearArchitecture.UI.Modules.Home.Views;
@@ -119,12 +118,12 @@
         }
 
         /// <summary>
-        /// Navigation search text.
+        /// AutoSuggestBox search text.
         /// </summary>
         public ReactivePropertySlim<string> AutoSuggestBoxSearchText { get; } = new(string.Empty);
 
         /// <summary>
-        /// Navigation search items.
+        /// AutoSuggestBox items.
         /// </summary>
         public ReadOnlyReactivePropertySlim<DataNavigationView[]> AutoSuggestBoxItems { get; }
 
@@ -134,7 +133,7 @@
         public ReactivePropertySlim<NavigationViewItemBase[]> NavigationMenuItems { get; } = new(NavigationViewItems);
 
         /// <summary>
-        /// Navigation search text.
+        /// Navigation selected item.
         /// </summary>
         public ReactiveProperty<NavigationViewItemBase> NavigationSelectedItem { get; }
 
