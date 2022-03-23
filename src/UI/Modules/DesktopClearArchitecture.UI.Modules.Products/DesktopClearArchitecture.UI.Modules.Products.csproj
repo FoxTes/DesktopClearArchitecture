@@ -7,8 +7,8 @@
 
     <ItemGroup>
         <PackageReference Include="Prism.Wpf" Version="8.1.97" />
-        <PackageReference Include="ReactiveProperty" Version="8.0.3" />
-        <PackageReference Include="ReactiveProperty.Core" Version="8.0.3" />
+        <PackageReference Include="ReactiveProperty" Version="8.0.4" />
+        <PackageReference Include="ReactiveProperty.Core" Version="8.0.4" />
     </ItemGroup>
 
     <ItemGroup>

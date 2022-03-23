@@ -17,15 +17,15 @@
             GetAllProducts.WithSubscribe(async () =>
             {
                 Products.Value = await unitOfWork
-                    .Repository<Product>()
-                    .GetAllAsync();
+                    .GetRepository<Product>()
+                    .GetAllAsync(true);
             });
         }
 
         /// <summary>
         /// Products.
         /// </summary>
-        public ReactiveProperty<List<Product>> Products { get; } = new();
+        public ReactiveProperty<IList<Product>> Products { get; } = new();
 
         /// <summary>
         /// Get all products.

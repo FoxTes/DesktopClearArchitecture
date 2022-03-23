@@ -24,11 +24,11 @@
       <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
       <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
       <PackageReference Include="ModernWpfUis" Version="1.4.0" />
       <PackageReference Include="Prism.Unity" Version="8.1.97" />
-      <PackageReference Include="ReactiveProperty" Version="8.0.3" />
-      <PackageReference Include="ReactiveProperty.WPF" Version="8.0.3" />
+      <PackageReference Include="ReactiveProperty" Version="8.0.4" />
+      <PackageReference Include="ReactiveProperty.WPF" Version="8.0.4" />
       <PackageReference Include="Scrutor.AspNetCore" Version="3.3.0" />
       <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
       <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />

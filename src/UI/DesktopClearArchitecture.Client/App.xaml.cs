@@ -8,6 +8,7 @@ using System.Windows.Threading;
 using Application.Extensions;
 using DesktopClearArchitecture.UI.Dialogs.Authorization.ViewModels;
 using DesktopClearArchitecture.UI.Dialogs.Authorization.Views;
+using Infrastructure.Persistence.Contexts;
 using Infrastructure.Persistence.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,8 +28,8 @@ using Views;
 /// <inheritdoc />
 public partial class App
 {
-    private ILogger _logger;
-    private IConfigurationRoot _configuration;
+    private ILogger _logger = null!;
+    private IConfigurationRoot _configuration = null!;
 
     /// <inheritdoc />
     public App()
@@ -42,13 +43,13 @@ public partial class App
         base.OnStartup(e);
 
         _logger = Log.ForContext<App>();
-        _logger.Information("Start application. Start args count: {Count}.", e.Args.Length);
+        _logger.Information("Start application. Start args count: {Count}", e.Args.Length);
     }
 
     /// <inheritdoc />
     protected override void OnExit(ExitEventArgs e)
     {
-        _logger.Information("Exit application. Exit code: {Code}.", e.ApplicationExitCode);
+        _logger.Information("Exit application. Exit code: {Code}", e.ApplicationExitCode);
 
         base.OnExit(e);
     }
@@ -82,7 +83,7 @@ public partial class App
             .AddMapster()
             .AddHttpClient()
             .AddPersistence(_configuration)
-            .AddRepositories()
+            .AddUnitOfWork<ApplicationDbContext>()
             .AddAdvancedDependencyInjection();
 
         var container = new UnityContainer();
@@ -147,7 +148,7 @@ public partial class App
 
     private void CurrentOnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
     {
-        _logger.Warning(e.Exception.Demystify(), "Application Error.");
+        _logger.Warning(e.Exception.Demystify(), "Application Error");
 
         if (Debugger.IsAttached)
             e.Handled = false;

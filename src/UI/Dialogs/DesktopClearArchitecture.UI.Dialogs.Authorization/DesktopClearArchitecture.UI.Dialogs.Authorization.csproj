@@ -11,7 +11,7 @@
 
     <ItemGroup>
       <PackageReference Include="ModernWpfUis" Version="1.4.0" />
-      <PackageReference Include="ReactiveProperty" Version="8.0.3" />
+      <PackageReference Include="ReactiveProperty" Version="8.0.4" />
     </ItemGroup>
 
 </Project>

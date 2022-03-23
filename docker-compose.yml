@@ -1,12 +1,4 @@
-﻿version: '3.4'
-
-services:
-  
-  db:
-    image: "mcr.microsoft.com/mssql/server"
-    environment:
-      SA_PASSWORD: "Your_password123"
-      ACCEPT_EULA: "Y"
+﻿version: "3.9"
 
   seq-input-gelf:
     image: datalust/seq-input-gelf:latest
