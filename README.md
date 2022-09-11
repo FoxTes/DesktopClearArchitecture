@@ -13,7 +13,7 @@ This repository is a template for building desktop applications based on a clean
 
 ## Tech Stack :muscle:
 
-* [WPF .NET5](https://docs.microsoft.com/ru-ru/dotnet/desktop/wpf/?view=netdesktop-5.0)
+* [WPF .NET6](https://docs.microsoft.com/ru-ru/dotnet/desktop/wpf/?view=netdesktop-6.0)
 * [Prism](https://prismlibrary.com/)
 * [ReactiveProperty](https://github.com/runceel/ReactiveProperty)
 * [Entity Framework Core 6](https://docs.microsoft.com/en-us/ef/core/)
@@ -25,7 +25,8 @@ This repository is a template for building desktop applications based on a clean
 
 ## Down the Roadmap
 
-* Migration to .NET 6
+* Add MediatoR
+* Add architectural tests
 
 ## Contributing
 
