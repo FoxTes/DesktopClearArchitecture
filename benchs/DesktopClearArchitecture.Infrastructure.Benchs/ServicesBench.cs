@@ -1,13 +1,10 @@
-﻿using System.Linq;
+﻿namespace DesktopClearArchitecture.Infrastructure.Benchs;
+
 using AutoMapper;
-using DesktopClearArchitecture.Application.Dtos;
-using DesktopClearArchitecture.Domain.Entities;
+using Application.Dtos;
 using DesktopClearArchitecture.Domain.Models;
 using FastExpressionCompiler;
 using Mapster;
-
-namespace DesktopClearArchitecture.Infrastructure.Bench;
-
 using BenchmarkDotNet.Attributes;
 using Services;
 
@@ -26,11 +23,11 @@ public class ServicesBench
     public ServicesBench()
     {
         _musicPlayer = new MusicPlayer();
-            
+
         var config = new MapperConfiguration(cfg => cfg.CreateMap<Song, SongDto>()
             .ForMember(dest => dest.FullName, opt => opt.MapFrom(scr => $"{scr.Name} - {scr.Duration.ToString()}")));
         _mapper = new Mapper(config);
-            
+
         TypeAdapterConfig<Song, SongDto>
             .ForType()
             .Map(dest => dest.FullName, scr => $"{scr.Name} - {scr.Duration.ToString()}");

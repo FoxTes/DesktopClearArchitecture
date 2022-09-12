@@ -28,7 +28,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Infrastructure", "src\Infrastructure\DesktopClearArchitecture.Infrastructure\DesktopClearArchitecture.Infrastructure.csproj", "{3A2605DB-CCF0-4982-9092-117D6E264E3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Infrasctucture.Identity.Test", "tests\DesktopClearArchitecture.Infrasctucture.Identity.Test\DesktopClearArchitecture.Infrasctucture.Identity.Test.csproj", "{03656BAD-7F6A-47D6-BD64-8B788E60EB69}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Infrasctucture.Identity.Tests", "tests\DesktopClearArchitecture.Infrasctucture.Identity.Tests\DesktopClearArchitecture.Infrasctucture.Identity.Tests.csproj", "{03656BAD-7F6A-47D6-BD64-8B788E60EB69}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{02E9CD84-7D81-4943-828D-C7D6DF3C4863}"
 EndProject
@@ -54,7 +54,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.UI
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchs", "benchs", "{2A0EDE92-5EF3-456C-A2F3-7F0B3CE11F12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Infrastructure.Bench", "benchs\DesktopClearArchitecture.Infrastructure.Bench\DesktopClearArchitecture.Infrastructure.Bench.csproj", "{0C0FB20D-B1E6-432F-B7CD-40E7D3DF300D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Infrastructure.Benchs", "benchs\DesktopClearArchitecture.Infrastructure.Benchs\DesktopClearArchitecture.Infrastructure.Benchs.csproj", "{0C0FB20D-B1E6-432F-B7CD-40E7D3DF300D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{41240DE6-89B7-4748-8936-A64108B22FD7}"
 ProjectSection(SolutionItems) = preProject
@@ -65,7 +65,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dialogs", "Dialogs", "{159E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.UI.Dialogs.Authorization", "src\UI\Dialogs\DesktopClearArchitecture.UI.Dialogs.Authorization\DesktopClearArchitecture.UI.Dialogs.Authorization.csproj", "{7A199108-9CEF-4326-B8BE-42A9A42161D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.UI.Shared", "tests\DesktopClearArchitecture.UI.Shared\DesktopClearArchitecture.UI.Shared.csproj", "{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.UI.Shared.Tests", "tests\DesktopClearArchitecture.UI.Shared.Tests\DesktopClearArchitecture.UI.Shared.Tests.csproj", "{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClearArchitecture.Architecture.Tests", "tests\DesktopClearArchitecture.Architecture.Tests\DesktopClearArchitecture.Architecture.Tests.csproj", "{6DC3B13E-073D-4649-8573-72921E755376}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -272,6 +274,18 @@ Global
 		{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}.Release|x64.Build.0 = Release|Any CPU
 		{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}.Release|x86.ActiveCfg = Release|Any CPU
 		{3FD5B281-06EE-4D74-9158-1C7D91FB69C0}.Release|x86.Build.0 = Release|Any CPU
+		{6DC3B13E-073D-4649-8573-72921E755376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC3B13E-073D-4649-8573-72921E755376}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC3B13E-073D-4649-8573-72921E755376}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6DC3B13E-073D-4649-8573-72921E755376}.Debug|x64.Build.0 = Debug|Any CPU
+		{6DC3B13E-073D-4649-8573-72921E755376}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6DC3B13E-073D-4649-8573-72921E755376}.Debug|x86.Build.0 = Debug|Any CPU
+		{6DC3B13E-073D-4649-8573-72921E755376}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC3B13E-073D-4649-8573-72921E755376}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC3B13E-073D-4649-8573-72921E755376}.Release|x64.ActiveCfg = Release|Any CPU
+		{6DC3B13E-073D-4649-8573-72921E755376}.Release|x64.Build.0 = Release|Any CPU
+		{6DC3B13E-073D-4649-8573-72921E755376}.Release|x86.ActiveCfg = Release|Any CPU
+		{6DC3B13E-073D-4649-8573-72921E755376}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F19B327B-0830-46BF-B041-78ADA2077D64} = {2085163C-7BCB-4625-A63F-AD9EE86FD24F}
@@ -296,5 +310,6 @@ Global
 		{159E30A1-3A11-4E91-84BB-CC4FCFB024B6} = {02E9CD84-7D81-4943-828D-C7D6DF3C4863}
 		{7A199108-9CEF-4326-B8BE-42A9A42161D3} = {159E30A1-3A11-4E91-84BB-CC4FCFB024B6}
 		{3FD5B281-06EE-4D74-9158-1C7D91FB69C0} = {C88C0AF8-A3A8-4E2B-BC32-114B411857C0}
+		{6DC3B13E-073D-4649-8573-72921E755376} = {C88C0AF8-A3A8-4E2B-BC32-114B411857C0}
 	EndGlobalSection
 EndGlobal

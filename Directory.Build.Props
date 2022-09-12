@@ -10,7 +10,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
     
-    <ItemGroup Condition=" '$(ProjectName)' != '_build' And !'$(ProjectName.EndsWith(`Test`))' And !'$(ProjectName.EndsWith(`Bench`))'">
+    <ItemGroup Condition=" '$(ProjectName)' != '_build'">
         <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.354">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

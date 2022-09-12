@@ -1,4 +1,4 @@
-﻿namespace DesktopClearArchitecture.UI.Shared;
+﻿namespace DesktopClearArchitecture.UI.Shared.Tests;
 
 using System.Globalization;
 using DesktopClearArchitecture.Shared.Convertors;
