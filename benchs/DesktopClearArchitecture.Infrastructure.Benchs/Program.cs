@@ -1,6 +1,6 @@
-﻿using BenchmarkDotNet.Running;
+﻿namespace DesktopClearArchitecture.Infrastructure.Benchs;
 
-namespace DesktopClearArchitecture.Infrastructure.Bench;
+using BenchmarkDotNet.Running;
 
 /// <summary>
 /// Main.
